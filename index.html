@@ -27,12 +27,16 @@
             */
         </style>
         <script>
-            var url = 'http://api.skybro2004.com/schedular?date=20210908'
+            var url = 'http://api.skybro2004.com/schedular/20210908'
             fetch(url)
-                .then(data => {
+                .then(resdata => {
                     console.log("json")
-                    console.log(data)
-                    
+                    console.log(resdata)
+                    if(data.code==200){
+                        for(const item of resdata.data){
+                            document.write(item)
+                        }
+                    }
                 })
                 .catch(err => {
                     console.log("error")
