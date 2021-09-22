@@ -27,14 +27,21 @@
             */
         </style>
         <script>
-            var url = 'http://api.skybro2004.com/schedular/20210908'
+            var url = 'http://api.skybro2004.com/schedular?date=20210908'
             fetch(url)
-                .then(resdata => {
-                    console.log("json")
-                    console.log(resdata)
+                .then(res => {
+                    console.log(res)
+                    return res.json()
+                })
+                .then(data => {
+                    console.log("data")
+                    console.log(data)
+                    console.log("code : ", data.code)
                     if(data.code==200){
-                        for(const item of resdata.data){
-                            document.write(item)
+                        for(const item of data.data){
+                            console.log(item.weekday_str + item.period + "|" + item.item);
+                            //document.write(item)
+                            document.getElementById(String(item.weekday_str + item.period)).innerHTML = item.item
                         }
                     }
                 })
@@ -127,7 +134,7 @@
                 <td id="TUE7">독서</td>
                 <td id="WED7" class="select">선택 E</td>
                 <td id="THU7" class="select">선택 C</td>
-                <td id="FRI7">창체</td>
+                <td id="FRI7"></td>
             </tr>
         </table>
     </body>
