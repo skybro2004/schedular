@@ -27,7 +27,15 @@
             */
         </style>
         <script>
-            var url = 'http://api.skybro2004.com/schedular?date=20210908'
+            function getToday(){
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = ("0" + (1 + date.getMonth())).slice(-2);
+                var day = ("0" + date.getDate()).slice(-2);
+            
+                return year + month + day;
+            }
+            var url = 'http://api.skybro2004.com/schedular?date=' + getToday()
             fetch(url)
                 .then(res => {
                     console.log(res)
@@ -71,38 +79,38 @@
             <tr>
                 <td>1교시</td>
 
-                <td id="MON1">수학 II</td>
-                <td id="TUE1">운동과건강</td>
-                <td id="WED1">진로</td>
-                <td id="THU1">수학 II</td>
-                <td id="FRI1">운동과건강</td>
+                <td id="MON1"></td>
+                <td id="TUE1"></td>
+                <td id="WED1"></td>
+                <td id="THU1"></td>
+                <td id="FRI1"></td>
             </tr>
             <tr>
                 <td>2교시</td>
 
-                <td id="MON2" class="select">선택 E</td>
-                <td id="TUE2" class="select">선택 D</td>
-                <td id="WED2" class="select">선택 C</td>
-                <td id="THU2" class="select">선택 A</td>
-                <td id="FRI2" class="select">선택 F</td>
+                <td id="MON2"></td>
+                <td id="TUE2"></td>
+                <td id="WED2"></td>
+                <td id="THU2"></td>
+                <td id="FRI2"></td>
             </tr>
             <tr>
                 <td>3교시</td>
 
-                <td id="MON3" class="select">선택 A</td>
-                <td id="TUE3">영어 II</td>
-                <td id="WED3">수학 II</td>
-                <td id="THU3">영어 II</td>
-                <td id="FRI3">영어 II</td>
+                <td id="MON3"></td>
+                <td id="TUE3"></td>
+                <td id="WED3"></td>
+                <td id="THU3"></td>
+                <td id="FRI3"></td>
             </tr>
             <tr>
                 <td>4교시</td>
 
-                <td id="MON4">미술</td>
-                <td id="TUE4">수학 II</td>
-                <td id="WED4" class="select">선택 F</td>
-                <td id="THU4" class="select">선택 D</td>
-                <td id="FRI4">독서</td>
+                <td id="MON4"></td>
+                <td id="TUE4"></td>
+                <td id="WED4"></td>
+                <td id="THU4"></td>
+                <td id="FRI4"></td>
             </tr>
             <tr>
                 <td>점심시간</td>
@@ -112,28 +120,28 @@
             <tr>
                 <td>5교시</td>
 
-                <td id="MON5" class="select">선택 C</td>
-                <td id="TUE5" class="select">선택 F</td>
-                <td id="WED5">독서</td>
-                <td id="THU5">독서</td>
-                <td id="FRI5">창체</td>
+                <td id="MON5"></td>
+                <td id="TUE5"></td>
+                <td id="WED5"></td>
+                <td id="THU5"></td>
+                <td id="FRI5"></td>
             </tr>
             <tr>
                 <td>6교시</td>
 
-                <td id="MON6">영어 II</td>
-                <td id="TUE6" class="select">선택 A</td>
-                <td id="WED6" class="select">선택 D</td>
-                <td id="THU6" class="select">선택 E</td>
-                <td id="FRI6">창체</td>
+                <td id="MON6"></td>
+                <td id="TUE6"></td>
+                <td id="WED6"></td>
+                <td id="THU6"></td>
+                <td id="FRI6"></td>
             </tr>
             <tr>
                 <td>7교시</td>
 
                 <td id="MON7"></td>
-                <td id="TUE7">독서</td>
-                <td id="WED7" class="select">선택 E</td>
-                <td id="THU7" class="select">선택 C</td>
+                <td id="TUE7"></td>
+                <td id="WED7"></td>
+                <td id="THU7"></td>
                 <td id="FRI7"></td>
             </tr>
         </table>
