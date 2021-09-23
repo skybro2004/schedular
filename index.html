@@ -20,13 +20,12 @@
                 background-color: yellow;
                 /*color: yellowgreen;*/
             }
-            /*
-            #MON1{
-                color: teal;
-            }
-            */
         </style>
         <script>
+            function launch(){
+                location.href = "meal"
+            }
+
             function getToday(){
                 var date = new Date();
                 var year = date.getFullYear();
@@ -35,38 +34,77 @@
             
                 return year + month + day;
             }
-            var url = 'http://api.skybro2004.com/schedular?date=' + getToday()
-            fetch(url)
-                .then(res => {
-                    console.log(res)
-                    return res.json()
-                })
-                .then(data => {
-                    console.log("data")
-                    console.log(data)
-                    console.log("code : ", data.code)
-                    if(data.code==200){
-                        for(const item of data.data){
-                            console.log(item.weekday_str + item.period + "|" + item.item);
-                            //document.write(item)
-                            document.getElementById(String(item.weekday_str + item.period)).innerHTML = item.item
+
+            function format(){
+                var args = Array.prototype.slice.call (arguments, 1)
+                return arguments[0].replace (/\{(\d+)\}/g, function (match, index){
+                    return args[index];
+                });
+            }
+
+            function update(date){
+                var url = 'http://127.0.0.1:5000/schedular?date=' + date
+                fetch(url)
+                    .then(res => {
+                        console.log(res)
+                        return res.json()
+                    })
+                    .then(data => {
+                        console.log("data")
+                        console.log(data)
+                        console.log("code : ", data.code)
+                        if(data.code==200){
+                            for(const item of data.data){
+                                console.log(item.weekday_str + item.period + "|" + item.item);
+                                //document.write(item)
+                                document.getElementById(String(item.weekday_str + item.period)).innerHTML = item.item
+                            }
+                            var dateFrom = data.header.dateFrom
+                            var dateTo = data.header.dateTo
+                            document.getElementById("week").innerHTML = format("{0}월 {1}일 ~ {2}월 {3}일 시간표", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
                         }
-                    }
-                })
-                .catch(err => {
-                    console.log("error")
-                    console.log(err)
-                })
+                    })
+                    .catch(err => {
+                        console.log("error")
+                        console.log(err)
+                    })
+            }
+
+            function nextWeek(){
+                jsdate.setDate(jsdate.getDate() + 7)
+                date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                try{
+                    update(date)
+                }
+                catch{
+                    alert("시간표가 없어요!")
+                }
+            }
+
+            function prevWeek(){
+                jsdate.setDate(jsdate.getDate() - 7)
+                date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                update(date)
+            }
         </script>
     </head>
     <body>
         <script>
-            //alert("Hello world!");
+            var date = getToday()
+            var jsdate = new Date(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
+            update(date)
         </script>
 
 
 
         <table class="schedular_table">
+            <tr>
+                <td colspan="6">
+                    <button onclick="prevWeek();"><</button>
+                    <label id="week">무슨무슨날 시간표</label>
+                    <button onclick="nextWeek();">></button>
+                </td>
+            </tr>
             <tr>
                 <td> / </td>
 
@@ -115,7 +153,9 @@
             <tr>
                 <td>점심시간</td>
 
-                <td colspan="5">점심시간</td>
+                <td colspan="5">
+                    <a href="javascript:launch()">오늘 급식!</button>
+                </td>
             </tr>
             <tr>
                 <td>5교시</td>
