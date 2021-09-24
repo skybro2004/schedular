@@ -8,9 +8,53 @@
         <style>
             /*style*/
         </style>
+        <script>
+            function getToday(){
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = ("0" + (1 + date.getMonth())).slice(-2);
+                var day = ("0" + date.getDate()).slice(-2);
+            
+                return year + month + day;
+            }
+
+            function update(date){
+                url = "http://127.0.0.1:5000/meal?date=" + date
+                const config = {
+                    headers: {
+                        'Accept' : 'application/json'
+                    }
+                }
+                fetch(url, config)
+                    .then(res => {
+                        console.log(res)
+                        return res.json()
+                    })
+                    .then(data => {
+                        console.log(data)
+                        if(data.code==200){
+                            var mealList = document.getElementById("mealList")
+                            for(const item of data.meal){
+                                console.log(item)
+                                var temp = document.createElement('li')
+                                temp.innerHTML = item
+                                mealList.appendChild(temp)
+                            }
+                            document.getElementById("cal").innerHTML = data.cal
+                        }
+                        else if(code==404){
+                            document.getElementById("cal").innerHTML = "급식이 없어요!"
+                        }
+                        else{
+                            console.log(data.code)
+                            document.write("error : ", data.code)
+                        }
+                    })
+            }
+        </script>
     </head>
     <body>
-        <script>
+        <script>/*
             var url = 'https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=028278aaacd242438668d46a5464e934&Type=json&pIndex=1&pSize=31&ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7530081&MLSV_FROM_YMD=20210917&MLSV_TO_YMD=20210917'
             //fetch('https://jsonplaceholder.typicode.com/todos/1')
             fetch(url)
@@ -50,7 +94,20 @@
                     document.write("error")
                 });
             
-            
+            */
+            date = getToday()
+            update(date)
+        </script>
+        <div>
+            <button id="prev"><</button>
+            <button id="date">날짜선택</button>
+            <button id="next">></button>
+        </div>
+        <ul id="mealList">
+        </ul>
+        <p id="cal"></p>
+        <script>
+            document.getElementById("date").innerText = "20210924"
         </script>
     </body>
 </html>
