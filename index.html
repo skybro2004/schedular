@@ -43,8 +43,13 @@
             }
 
             function update(date){
-                var url = 'http://127.0.0.1:5000/schedular?date=' + date
-                fetch(url)
+                var url = 'http://skybro2004.com/schedular?date=' + date
+                const config = {
+                    headers: {
+                        'Accept' : 'application/json'
+                    }
+                }
+                fetch(url, config)
                     .then(res => {
                         console.log(res)
                         return res.json()
