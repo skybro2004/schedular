@@ -43,6 +43,7 @@
             }
 
             function update(date){
+                clear()
                 var url = 'http://api.skybro2004.com/schedular?date=' + date
                 const config = {
                     headers: {
@@ -75,6 +76,16 @@
                     })
             }
 
+            function clear(){
+                for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
+                    for(var period=1; period<8; period++){
+                        console.log(weekday + period)
+                        document.getElementById(String(weekday + period)).innerHTML = " "
+                    }
+                }
+
+            }
+
             function nextWeek(){
                 jsdate.setDate(jsdate.getDate() + 7)
                 date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
@@ -96,11 +107,7 @@
         </script>
     </head>
     <body>
-        <script>
-            var date = getToday()
-            var jsdate = new Date(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
-            update(date)
-        </script>
+        
 
 
 
@@ -192,6 +199,13 @@
                 <td id="FRI7"></td>
             </tr>
         </table>
+
+        <script>
+            var date = getToday()
+            var jsdate = new Date(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
+            update(date)
+            clear()
+        </script>
     </body>
 </html>
 
