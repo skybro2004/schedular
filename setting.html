@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>
+            시간표
+        </title>
+        <style>
+            /*style*/
+        </style>
+        <script>
+            var expDay = 7
+            //!TODO
+            //연말에 자동으로 만료되기
+
+            function setCookie(cookie_name, value, days) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + days);
+                // 설정 일수만큼 현재시간에 만료값으로 지정
+            
+                var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+                document.cookie = cookie_name + '=' + cookie_value;
+            }
+
+            function getCookie(cookie_name) {
+                var x, y;
+                var val = document.cookie.split(';');
+            
+                for (var i = 0; i < val.length; i++) {
+                    x = val[i].substr(0, val[i].indexOf('='));
+                    y = val[i].substr(val[i].indexOf('=') + 1);
+                    x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+                    if (x == cookie_name) {
+                        return unescape(y); // unescape로 디코딩 후 값 리턴
+                    }
+                }
+            }
+
+            function onChange(e){
+                const value = e.value
+                const name = e.getAttribute('name')
+                console.log(name, value)
+
+                setCookie(name, value, expDay)
+            }
+
+            function buttonDone(){
+                for(var select of ["A", "C", "D", "E", "F"]){
+
+                }
+            }
+
+            function done(){
+                window.history.back()
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <select id="grade" name="grade" onchange="onChange(this)">
+                <option id="grade1" value="1">1</option>
+                <option id="grade2" value="2">2</option>
+                <option id="grade3" value="3">3</option>
+            </select>
+            학년
+        </div>
+        <div>
+            <select id="class" name="class" onchange="onChange(this)">
+                <option id="class1" value="1">1</option>
+                <option id="class2" value="2">2</option>
+                <option id="class3" value="3">3</option>
+                <option id="class4" value="4">4</option>
+                <option id="class5" value="5">5</option>
+                <option id="class6" value="6">6</option>
+                <option id="class7" value="7">7</option>
+                <option id="class8" value="8">8</option>
+                <option id="class9" value="9">9</option>
+                <option id="class10" value="10">10</option>
+            </select>
+            반
+        </div>
+        <hr>
+        <div>
+            선택 A : 
+            <select name="selectA" onchange="onChange(this)">
+                <option value="none">(선택)</option>
+                <option value="경제">경제</option>
+                <option value="일본어 I">일본어 I</option>
+                <option value="화학 I">화학 I</option>
+                <option value="정치와 법">정치와 법</option>
+                <option value="정보통신">정보통신</option>
+                <option value="생명과학 I">생명과학 I</option>
+                <option value="지구과학 I">지구과학 I</option>
+                <option value="고전문학감상">고전문학감상</option>
+                <option value="생활과 과학">생활과 과학</option>
+                <option value="기하">기하</option>
+                <option value="프로그래밍">프로그래밍</option>
+            </select>
+        </div>
+        <div>
+            선택 C : 
+            <select name="selectC" onchange="onChange(this)">
+                <option value="none">(선택)</option>
+                <option value="세계사">세계사</option>
+                <option value="고전문학감상">고전문학감상</option>
+                <option value="중국어 I">중국어 I</option>
+                <option value="생명과학 I">생명과학 I</option>
+                <option value="기하">기하</option>
+                <option value="세계지리">세계지리</option>
+                <option value="일본어 I">일본어 I</option>
+                <option value="생활과 과학">생활과 과학</option>
+                <option value="물리학 I">물리학 I</option>
+                <option value="화학 I">화학 I</option>
+            </select>
+        </div>
+        <div>
+            선택 D : 
+            <select name="selectD" onchange="onChange(this)">
+                <option value="none">(선택)</option>
+                <option value="윤리와 사상">윤리와 사상</option>
+                <option value="정보통신">정보통신</option>
+                <option value="정치와 법">정치와 법</option>
+                <option value="생활과 과학">생활과 과학</option>
+                <option value="물리학 I">물리학 I</option>
+                <option value="기하">기하</option>
+                <option value="화학 I">화학 I</option>
+                <option value="생명과학 I">생명과학 I</option>
+                <option value="지구과학 I">지구과학 I</option>
+                <option value="중국어 I">중국어 I</option>
+            </select>
+        </div>
+        <div>
+            선택 E : 
+            <select name="selectE" onchange="onChange(this)">
+                <option value="none">(선택)</option>
+                <option value="생명과학 I">생명과학 I</option>
+                <option value="윤리와 사상">윤리와 사상</option>
+                <option value="심화영어독해 I">심화영어독해 I</option>
+                <option value="화학 I">화학 I</option>
+                <option value="중국어 I">중국어 I</option>
+                <option value="고전문학감상">고전문학감상</option>
+                <option value="물리학 I">물리학 I</option>
+                <option value="지구과학 I">지구과학 I</option>
+                <option value="기하">기하</option>
+                <option value="생활과 과학">생활과 과학</option>
+            </select>
+        </div>
+        <div>
+            선택 F : 
+            <select name="selectF" onchange="onChange(this)">
+                <option value="none">(선택)</option>
+                <option value="일본어 I">일본어 I</option>
+                <option value="세계지리">세계지리</option>
+                <option value="생명과학 I">생명과학 I</option>
+                <option value="중국어 I">중국어 I</option>
+                <option value="화학 I">화학 I</option>
+                <option value="정보통신">정보통신</option>
+                <option value="고전문학감상">고전문학감상</option>
+                <option value="기하">기하</option>
+                <option value="윤리와 사상">윤리와 사상</option>
+                <option value="지구과학 I">지구과학 I</option>
+            </select>
+        </div>
+        <hr>
+        <button>선택 완료!</button>
+
+        <script>
+            var cookieGrade = getCookie('grade');
+            var cookieClass = getCookie("class");
+            if(cookieGrade==undefined) setCookie("grade", "1", expDay); else document.getElementById("grade" + cookieGrade).setAttribute("selected", "")
+            if(cookieClass==undefined) setCookie("class", "1", expDay); else document.getElementById("class" + cookieClass).setAttribute("selected", "")
+            //for(select of ["A", "C", "D", "E", "F"]){
+                //if(getCookie("select"+select)!=undefined) document.get //document.getElementById("class" + cookieClass).setAttribute("selected", "")
+            //}
+            
+            console.log(document.cookie)
+        </script>
+    </body>
+</html>

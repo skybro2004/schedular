@@ -35,6 +35,29 @@
                 return year + month + day;
             }
 
+            function setCookie(cookie_name, value, days) {
+                var exdate = new Date();
+                exdate.setDate(exdate.getDate() + days);
+                // 설정 일수만큼 현재시간에 만료값으로 지정
+            
+                var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
+                document.cookie = cookie_name + '=' + cookie_value;
+            }
+
+            function getCookie(cookie_name) {
+                var x, y;
+                var val = document.cookie.split(';');
+            
+                for (var i = 0; i < val.length; i++) {
+                    x = val[i].substr(0, val[i].indexOf('='));
+                    y = val[i].substr(val[i].indexOf('=') + 1);
+                    x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
+                    if (x == cookie_name) {
+                        return unescape(y); // unescape로 디코딩 후 값 리턴
+                    }
+                }
+            }
+
             function format(){
                 var args = Array.prototype.slice.call (arguments, 1)
                 return arguments[0].replace (/\{(\d+)\}/g, function (match, index){
@@ -42,8 +65,7 @@
                 });
             }
 
-            function update(date){
-                clear()
+            function update(grade, schlClass, date){
                 var url = 'http://api.skybro2004.com/schedular?date=' + date
                 const config = {
                     headers: {
@@ -60,14 +82,24 @@
                         console.log(data)
                         console.log("code : ", data.code)
                         if(data.code==200){
+                            clear()
                             for(const item of data.data){
-                                console.log(item.weekday_str + item.period + "|" + item.item);
-                                //document.write(item)
-                                document.getElementById(String(item.weekday_str + item.period)).innerHTML = item.item
+                                //console.log(item.weekday_str + item.period + "|" + item.item);
+                                document.getElementById("info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
+                                var subject = String(item.item)
+                                if(subject.startsWith('선택')){
+                                    if(getCookie("select" + subject.charAt(subject.length-1))!=undefined){
+                                        subject = getCookie("select" + subject.charAt(subject.length-1))
+                                    }
+                                }
+                                document.getElementById(String(item.weekday_str + item.period)).innerHTML = subject
                             }
                             var dateFrom = data.header.dateFrom
                             var dateTo = data.header.dateTo
                             document.getElementById("week").innerHTML = format("{0}월 {1}일 ~ {2}월 {3}일 시간표", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
+                        }
+                        else if(data.code==404){
+                            alert("시간표 정보가 없어요!")
                         }
                     })
                     .catch(err => {
@@ -91,7 +123,7 @@
                 date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
                 console.log(date, jsdate)
                 try{
-                    update(date)
+                    update(getCookie("grade"), getCookie("class"), date)
                 }
                 catch{
                     alert("시간표가 없어요!")
@@ -102,7 +134,13 @@
                 jsdate.setDate(jsdate.getDate() - 7)
                 date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
                 console.log(date, jsdate)
-                update(date)
+                update(getCookie("grade"), getCookie("class"), date)
+            }
+
+            function todayWeek(){
+                jsdate = new Date()
+                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                update(getCookie("grade"), getCookie("class"), date)
             }
         </script>
     </head>
@@ -114,9 +152,16 @@
         <table class="schedular_table">
             <tr>
                 <td colspan="6">
+                    <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                    <button>설정</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
                     <button onclick="prevWeek();"><</button>
                     <label id="week">무슨무슨날 시간표</label>
                     <button onclick="nextWeek();">></button>
+                    <button onclick="todayWeek();">오늘</button>
                 </td>
             </tr>
             <tr>
@@ -203,7 +248,9 @@
         <script>
             var date = getToday()
             var jsdate = new Date(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
-            update(date)
+            if(getCookie("grade")==undefined) setCookie("grade", 1, 30)
+            if(getCookie("class")==undefined) setCookie("class", 1, 30)
+            update(getCookie("grade"), getCookie("class"), date)
             clear()
         </script>
     </body>
