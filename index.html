@@ -123,7 +123,7 @@
 
             function nextWeek(){
                 jsdate.setDate(jsdate.getDate() + 7)
-                date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
                 console.log(date, jsdate)
                 try{
                     update(getCookie("grade"), getCookie("class"), date)
@@ -135,7 +135,7 @@
 
             function prevWeek(){
                 jsdate.setDate(jsdate.getDate() - 7)
-                date = String(jsdate.getFullYear()) + jsdate.getMonth().toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
                 console.log(date, jsdate)
                 update(getCookie("grade"), getCookie("class"), date)
             }
