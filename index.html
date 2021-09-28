@@ -251,14 +251,9 @@
         <script>
             var date = getToday()
             var jsdate = new Date(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
-<<<<<<< HEAD
-            update(date)
-=======
             if(getCookie("grade")==undefined) setCookie("grade", 1, 30)
             if(getCookie("class")==undefined) setCookie("class", 1, 30)
             update(getCookie("grade"), getCookie("class"), date)
-            clear()
->>>>>>> 4d9ccbff229aa8aa958bf288903cb934c154801e
         </script>
     </body>
 </html>
