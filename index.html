@@ -66,7 +66,7 @@
             }
 
             function update(grade, schlClass, date){
-                var url = 'http://api.skybro2004.com/schedular'
+                var url = 'https://api.skybro2004.com/schedular'
                 url += "?date=" + date
                 url += "&grade=" + grade
                 url += "&class=" + schlClass
@@ -252,6 +252,7 @@
             if(getCookie("grade")==undefined) setCookie("grade", 1, 30)
             if(getCookie("class")==undefined) setCookie("class", 1, 30)
             update(getCookie("grade"), getCookie("class"), date)
+            console.log("20211001")
         </script>
     </body>
 </html>

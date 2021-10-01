@@ -19,7 +19,7 @@
             }
 
             function update(date){
-                url = "http://api.skybro2004.com/meal?date=" + date
+                url = "https://api.skybro2004.com/meal?date=" + date
                 const config = {
                     headers: {
                         'Accept' : 'application/json'
@@ -68,6 +68,7 @@
         <p id="cal"></p>
         <script>
             document.getElementById("date").innerText = "20210924"
+            console.log("20211001")
         </script>
     </body>
 </html>
