@@ -2,249 +2,155 @@
 <html>
     <head>
         <meta charset='utf-8'>
+        <link rel="shortcut icon" href="./images/icon.ico">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>
             시간표
         </title>
-        <style>
-            table {
-                border-collapse: collapse;
-                border: 1px solid black;
-            }
-            td{
-                width: 80px;
-                height: 40px;
-                text-align: center;
-                border: 1px solid black;
-            }
-            .select{
-                background-color: yellow;
-                /*color: yellowgreen;*/
-            }
-        </style>
-        <script>
-            function launch(){
-                location.href = "../meal"
-            }
+        <link rel="stylesheet" href="./css/index.css" type="text/css">
 
-            function getToday(){
-                var date = new Date();
-                var year = date.getFullYear();
-                var month = ("0" + (1 + date.getMonth())).slice(-2);
-                var day = ("0" + date.getDate()).slice(-2);
-            
-                return year + month + day;
-            }
-
-            function setCookie(cookie_name, value, days) {
-                var exdate = new Date();
-                exdate.setDate(exdate.getDate() + days);
-                // 설정 일수만큼 현재시간에 만료값으로 지정
-            
-                var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
-                document.cookie = cookie_name + '=' + cookie_value + ';path=/';
-            }
-
-            function getCookie(cookie_name) {
-                var x, y;
-                var val = document.cookie.split(';');
-            
-                for (var i = 0; i < val.length; i++) {
-                    x = val[i].substr(0, val[i].indexOf('='));
-                    y = val[i].substr(val[i].indexOf('=') + 1);
-                    x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
-                    if (x == cookie_name) {
-                        return unescape(y); // unescape로 디코딩 후 값 리턴
-                    }
-                }
-            }
-
-            function format(){
-                var args = Array.prototype.slice.call (arguments, 1)
-                return arguments[0].replace (/\{(\d+)\}/g, function (match, index){
-                    return args[index];
-                });
-            }
-
-            function update(grade, schlClass, date){
-                var url = 'https://api.skybro2004.com/schedular'
-                url += "?date=" + date
-                url += "&grade=" + grade
-                url += "&class=" + schlClass
-                const config = {
-                    headers: {
-                        'Accept' : 'application/json'
-                    }
-                }
-                fetch(url, config)
-                    .then(res => {
-                        console.log(res)
-                        return res.json()
-                    })
-                    .then(data => {
-                        console.log("data")
-                        console.log(data)
-                        console.log("code : ", data.code)
-                        if(data.code==200){
-                            clear()
-                            for(const item of data.data){
-                                //console.log(item.weekday_str + item.period + "|" + item.item);
-                                document.getElementById("info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
-                                var subject = String(item.item)
-                                if(subject.startsWith('선택')){
-                                    if(getCookie("select" + subject.charAt(subject.length-1))!=undefined){
-                                        subject = getCookie("select" + subject.charAt(subject.length-1))
-                                    }
-                                }
-                                document.getElementById(String(item.weekday_str + item.period)).innerHTML = subject
-                            }
-                            var dateFrom = data.header.dateFrom
-                            var dateTo = data.header.dateTo
-                            document.getElementById("week").innerHTML = format("{0}월 {1}일 ~ {2}월 {3}일 시간표", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
-                        }
-                        else if(data.code==404){
-                            alert("시간표 정보가 없어요!")
-                        }
-                    })
-                    .catch(err => {
-                        console.log("error")
-                        console.log(err)
-                    })
-            }
-
-            function clear(){
-                for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
-                    for(var period=1; period<8; period++){
-                        document.getElementById(String(weekday + period)).innerHTML = " "
-                    }
-                }
-
-            }
-
-            function nextWeek(){
-                console.log(date, jsdate, "=>")
-                jsdate.setDate(jsdate.getDate() + 7)
-                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
-                console.log(date, jsdate)
-                update(getCookie("grade"), getCookie("class"), date)
-                }
-
-            function prevWeek(){
-                console.log(date, jsdate, "=>")
-                jsdate.setDate(jsdate.getDate() - 7)
-                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
-                console.log(date, jsdate)
-                update(getCookie("grade"), getCookie("class"), date)
-            }
-
-            function todayWeek(){
-                console.log(date, jsdate, "=>")
-                jsdate = new Date()
-                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
-                console.log(date, jsdate)
-                update(getCookie("grade"), getCookie("class"), date)
-            }
+        <script src="./js/header.js">
         </script>
     </head>
     <body>
-        
+        <header>
+            
+        </header>
+        <main>
+
+            <table class="schedular_table">
+                <tr>
+                    <td colspan="6">
+                        <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                        <button onclick="location.href='./setting'">설정</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <button onclick="prevWeek();"><</button>
+                        <label id="week">무슨무슨날 시간표</label>
+                        <button onclick="nextWeek();">></button>
+                        <button onclick="todayWeek();">오늘</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td> / </td>
+    
+                    <td>월요일</td>
+                    <td>화요일</td>
+                    <td>수요일</td>
+                    <td>목요일</td>
+                    <td>금요일</td>
+                </tr>
+                <tr>
+                    <td>1교시</td>
+    
+                    <td id="MON1"></td>
+                    <td id="TUE1"></td>
+                    <td id="WED1"></td>
+                    <td id="THU1"></td>
+                    <td id="FRI1"></td>
+                </tr>
+                <tr>
+                    <td>2교시</td>
+    
+                    <td id="MON2"></td>
+                    <td id="TUE2"></td>
+                    <td id="WED2"></td>
+                    <td id="THU2"></td>
+                    <td id="FRI2"></td>
+                </tr>
+                <tr>
+                    <td>3교시</td>
+    
+                    <td id="MON3"></td>
+                    <td id="TUE3"></td>
+                    <td id="WED3"></td>
+                    <td id="THU3"></td>
+                    <td id="FRI3"></td>
+                </tr>
+                <tr>
+                    <td>4교시</td>
+    
+                    <td id="MON4"></td>
+                    <td id="TUE4"></td>
+                    <td id="WED4"></td>
+                    <td id="THU4"></td>
+                    <td id="FRI4"></td>
+                </tr>
+                <tr>
+                    <td>점심시간</td>
+    
+                    <td colspan="5">
+                        <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5교시</td>
+    
+                    <td id="MON5"></td>
+                    <td id="TUE5"></td>
+                    <td id="WED5"></td>
+                    <td id="THU5"></td>
+                    <td id="FRI5"></td>
+                </tr>
+                <tr>
+                    <td>6교시</td>
+    
+                    <td id="MON6"></td>
+                    <td id="TUE6"></td>
+                    <td id="WED6"></td>
+                    <td id="THU6"></td>
+                    <td id="FRI6"></td>
+                </tr>
+                <tr>
+                    <td>7교시</td>
+    
+                    <td id="MON7"></td>
+                    <td id="TUE7"></td>
+                    <td id="WED7"></td>
+                    <td id="THU7"></td>
+                    <td id="FRI7"></td>
+                </tr>
+            </table>
+            <div class="plan">
+                <div class="header">
+                    <h2>일정</h2>
+                </div>
+                <ul>
+                    <li>
+                        mm월 dd일
+                    </li>
+                    <ul>
+                        <li>
+                            asdf
+                        </li>
+                    </ul>
+                    <li>
+                        ㅡㅡdnjf ㅇㅇdlf
+                    </li>
+                    <ul>
+                        <li>
+                            ㅁㄴㅇㄹ
+                        </li>
+                        <li>
+                            fdsa
+                        </li>
+                    </ul>
+                </ul>
+                What is Lorem Ipsum?
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+Why do we use it?
+It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+            </div>
+        </main>
+
+        <footer>
+            
+        </footer>
 
 
-
-        <table class="schedular_table">
-            <tr>
-                <td colspan="6">
-                    <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
-                    <button onclick="location.href='./setting'">설정</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <button onclick="prevWeek();"><</button>
-                    <label id="week">무슨무슨날 시간표</label>
-                    <button onclick="nextWeek();">></button>
-                    <button onclick="todayWeek();">오늘</button>
-                </td>
-            </tr>
-            <tr>
-                <td> / </td>
-
-                <td>월요일</td>
-                <td>화요일</td>
-                <td>수요일</td>
-                <td>목요일</td>
-                <td>금요일</td>
-            </tr>
-            <tr>
-                <td>1교시</td>
-
-                <td id="MON1"></td>
-                <td id="TUE1"></td>
-                <td id="WED1"></td>
-                <td id="THU1"></td>
-                <td id="FRI1"></td>
-            </tr>
-            <tr>
-                <td>2교시</td>
-
-                <td id="MON2"></td>
-                <td id="TUE2"></td>
-                <td id="WED2"></td>
-                <td id="THU2"></td>
-                <td id="FRI2"></td>
-            </tr>
-            <tr>
-                <td>3교시</td>
-
-                <td id="MON3"></td>
-                <td id="TUE3"></td>
-                <td id="WED3"></td>
-                <td id="THU3"></td>
-                <td id="FRI3"></td>
-            </tr>
-            <tr>
-                <td>4교시</td>
-
-                <td id="MON4"></td>
-                <td id="TUE4"></td>
-                <td id="WED4"></td>
-                <td id="THU4"></td>
-                <td id="FRI4"></td>
-            </tr>
-            <tr>
-                <td>점심시간</td>
-
-                <td colspan="5">
-                    <a href="javascript:launch()">오늘 급식!</button>
-                </td>
-            </tr>
-            <tr>
-                <td>5교시</td>
-
-                <td id="MON5"></td>
-                <td id="TUE5"></td>
-                <td id="WED5"></td>
-                <td id="THU5"></td>
-                <td id="FRI5"></td>
-            </tr>
-            <tr>
-                <td>6교시</td>
-
-                <td id="MON6"></td>
-                <td id="TUE6"></td>
-                <td id="WED6"></td>
-                <td id="THU6"></td>
-                <td id="FRI6"></td>
-            </tr>
-            <tr>
-                <td>7교시</td>
-
-                <td id="MON7"></td>
-                <td id="TUE7"></td>
-                <td id="WED7"></td>
-                <td id="THU7"></td>
-                <td id="FRI7"></td>
-            </tr>
-        </table>
 
         <script>
             var date = getToday()

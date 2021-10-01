@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'S-Core Dream light';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../fonts/SCDream2.otf') format('woff');
+}
+
+@font-face {
+    font-family: 'S-Core Dream regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../fonts/SCDream4.otf') format('woff');
+}
+
+@font-face {
+    font-family: 'S-Core Dream heavy';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../../fonts/SCDream7.otf') format('woff');
+}
+
+
+:root{
+    --font-light: 'S-Core Dream light', sans-serif;
+    --font-medium: 'S-Core Dream regular', sans-serif;
+    --font-heavy: 'S-Core Dream heavy', sans-serif;
+    --bgcolor: #121212;
+    --bgopacity: rgb(124, 124, 124, 0.2);
+    --font-color: white;
+    --border-color: white;
+}
+
+*{
+    font-family: 'S-Core Dream regular';
+    color: var(--font-color);
+}
+
+body{
+    background: var(--bgcolor);
+}
+
+header{
+    height: 70px;
+}
+
+main{
+    width: 100%;
+    max-height: 500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+table {
+    width: 550px;
+    min-width: 500px;
+    background-color: var(--bgopacity);
+    border: 3px solid var(--border-color);
+    border-collapse: collapse;
+    border-radius: 5px;
+    float: left;
+}
+
+td{
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+}
+
+button{
+    background-color: var(--bgopacity);
+    color: white;
+}
+
+select{
+    width: 100px;
+    background-color: var(--bgopacity);
+}
+select#grade{
+    width: 50px;
+}
+select#class{
+    width: 50px;
+}
+
+option{
+    background: gray;
+}
+#class1{
+    background: yellow;
+}
+
+.plan{
+    margin-left: 50px;
+    width: 300px;
+    max-height: 500px;
+    overflow: auto;
+    float: left;
+    background-color: var(--bgopacity);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+
+.plan::-webkit-scrollbar{
+    width: 6px;
+}
+.plan::-webkit-scrollbar-thumb{
+    height: 17%;
+    background-color: rgba(255,255,255,1);
+    /* 스크롤바 둥글게 설정    */
+    border-radius: 10px;
+}
+
+.header{
+    width: 100%;
+    text-align: center;
+}
+
+footer{
+    clear: both;
+}
+
+
+@media (min-width: 717px) and (max-width:991px) {
+    .plan{
+        width: 550px;
+        min-width: 500px;
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width:716px) {
+}

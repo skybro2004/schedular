@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset='utf-8'>
+        <link rel="shortcut icon" href="./images/icon.ico">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>
             시간표
         </title>
-        <style>
-            /*style*/
-        </style>
+        <link rel="stylesheet" href="../css/index.css" type="text/css">
         <script>
             var expDay = 7
             //!TODO
@@ -56,6 +56,7 @@
         </script>
     </head>
     <body>
+        <h3>학년/반 설정</h3>
         <div>
             <select id="grade" name="grade" onchange="onChange(this)">
                 <option id="grade1" value="1">1</option>
@@ -79,7 +80,10 @@
             </select>
             반
         </div>
+        
         <hr>
+
+        <h3>선택과목 설정</h3>
         <div>
             선택 A : 
             <select name="selectA" onchange="onChange(this)">
@@ -161,7 +165,9 @@
                 <option value="지구과학 I">지구과학 I</option>
             </select>
         </div>
+        
         <hr>
+        
         <button onclick="javascript:history.go(-1)">선택 완료!</button>
 
         <script>
