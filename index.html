@@ -41,7 +41,7 @@
                 // 설정 일수만큼 현재시간에 만료값으로 지정
             
                 var cookie_value = escape(value) + ((days == null) ? '' : '; expires=' + exdate.toUTCString());
-                document.cookie = cookie_name + '=' + cookie_value;
+                document.cookie = cookie_name + '=' + cookie_value + ';path=/';
             }
 
             function getCookie(cookie_name) {
@@ -114,7 +114,6 @@
             function clear(){
                 for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
                     for(var period=1; period<8; period++){
-                        console.log(weekday + period)
                         document.getElementById(String(weekday + period)).innerHTML = " "
                     }
                 }
@@ -122,18 +121,15 @@
             }
 
             function nextWeek(){
+                console.log(date, jsdate, "=>")
                 jsdate.setDate(jsdate.getDate() + 7)
                 date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
                 console.log(date, jsdate)
-                try{
-                    update(getCookie("grade"), getCookie("class"), date)
+                update(getCookie("grade"), getCookie("class"), date)
                 }
-                catch{
-                    alert("시간표가 없어요!")
-                }
-            }
 
             function prevWeek(){
+                console.log(date, jsdate, "=>")
                 jsdate.setDate(jsdate.getDate() - 7)
                 date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
                 console.log(date, jsdate)
@@ -141,8 +137,10 @@
             }
 
             function todayWeek(){
+                console.log(date, jsdate, "=>")
                 jsdate = new Date()
                 date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                console.log(date, jsdate)
                 update(getCookie("grade"), getCookie("class"), date)
             }
         </script>
@@ -250,7 +248,7 @@
 
         <script>
             var date = getToday()
-            var jsdate = new Date(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
+            var jsdate = new Date//(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
             if(getCookie("grade")==undefined) setCookie("grade", 1, 30)
             if(getCookie("class")==undefined) setCookie("class", 1, 30)
             update(getCookie("grade"), getCookie("class"), date)
