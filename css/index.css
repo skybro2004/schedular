@@ -4,21 +4,21 @@
     font-family: 'S-Core Dream light';
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/SCDream2.otf') format('woff');
+    src: url('../fonts/SCDream2.otf') format('woff');
 }
 
 @font-face {
     font-family: 'S-Core Dream regular';
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/SCDream4.otf') format('woff');
+    src: url('../fonts/SCDream4.otf') format('woff');
 }
 
 @font-face {
     font-family: 'S-Core Dream heavy';
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/SCDream7.otf') format('woff');
+    src: url('../fonts/SCDream7.otf') format('woff');
 }
 
 

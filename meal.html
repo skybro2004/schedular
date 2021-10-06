@@ -8,7 +8,7 @@
         </title>
         <link rel="stylesheet" href="./css/index.css" type="text/css">
         <script>
-            function getToday(){
+            function dateFormat(date){
                 var date = new Date();
                 var year = date.getFullYear();
                 var month = ("0" + (1 + date.getMonth())).slice(-2);
@@ -31,6 +31,8 @@
                     })
                     .then(data => {
                         console.log(data)
+                        document.getElementById("mealList").innerHTML = ""
+                        document.getElementById("date").innerText = date
                         if(data.code==200){
                             var mealList = document.getElementById("mealList")
                             for(const item of data.meal){
@@ -50,24 +52,33 @@
                         }
                     })
             }
+            
+            function prevDay(){
+                jsdate.setDate(jsdate.getDate() - 1)
+                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                update(date)
+            }
+
+            function nextDay(){
+                jsdate.setDate(jsdate.getDate() + 1)
+                date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+                update(date)
+            }
         </script>
     </head>
     <body>
-        <script>
-            date = getToday()
-            update(date)
-        </script>
         <div>
-            <button id="prev"><</button>
+            <button id="prev" onclick="prevDay();">&lt;</button>
             <button id="date">날짜선택</button>
-            <button id="next">></button>
+            <button id="next" onclick="nextDay();">&gt;</button>
         </div>
         <ul id="mealList">
         </ul>
         <p id="cal"></p>
         <script>
-            document.getElementById("date").innerText = "20210924"
-            console.log("20211001")
+            var jsdate = new Date()
+            var date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
+            update(date)
         </script>
     </body>
 </html>
