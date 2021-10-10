@@ -97,11 +97,11 @@ option{
 .plan{
     margin-left: 50px;
     width: 300px;
-    max-height: 500px;
+    height: 519px;
     overflow: auto;
     float: left;
     background-color: var(--bgopacity);
-    border: 2px solid var(--border-color);
+    border: 3px solid var(--border-color);
     border-radius: 5px;
 }
 
@@ -134,5 +134,17 @@ footer{
     }
 }
 
+@media (min-width:716px) {
+    .swiper-container{
+        display: none !important;
+    }
+}
 @media (max-width:716px) {
+    .timetable{
+        display: none !important;
+    }
+    .plan{
+        display: none !important;
+    }
+
 }
