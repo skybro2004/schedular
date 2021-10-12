@@ -5,161 +5,400 @@
         <link rel="shortcut icon" href="./images/icon.ico">
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>
-            시간표
+            서현고등학교 시간표
         </title>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
         <link rel="stylesheet" href="./css/index.css" type="text/css">
+        <style>
 
-        <script src="./js/header.js">
-        </script>
+            /*mobile test*/
+            /*
+            .swiper-container{
+                border: 1px solid red;
+            }
+            .swiper-wrapper{
+                border: 1px solid green;
+            }
+            .swiper-slide{
+                border: 1px solid blue;
+            }
+            */
+
+        </style>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="./js/header.js"></script>
     </head>
+
     <body>
         <header>
             
         </header>
-        <main>
+        <main class="main-pc">
 
-            <table class="schedular_table">
-                <tr>
-                    <td colspan="6">
-                        <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
-                        <button onclick="location.href='./setting'">설정</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="6">
-                        <button onclick="prevWeek();"><</button>
-                        <label id="week">무슨무슨날 시간표</label>
-                        <button onclick="nextWeek();">></button>
-                        <button onclick="todayWeek();">오늘</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td> / </td>
-    
-                    <td>월요일</td>
-                    <td>화요일</td>
-                    <td>수요일</td>
-                    <td>목요일</td>
-                    <td>금요일</td>
-                </tr>
-                <tr>
-                    <td>1교시</td>
-    
-                    <td id="MON1"></td>
-                    <td id="TUE1"></td>
-                    <td id="WED1"></td>
-                    <td id="THU1"></td>
-                    <td id="FRI1"></td>
-                </tr>
-                <tr>
-                    <td>2교시</td>
-    
-                    <td id="MON2"></td>
-                    <td id="TUE2"></td>
-                    <td id="WED2"></td>
-                    <td id="THU2"></td>
-                    <td id="FRI2"></td>
-                </tr>
-                <tr>
-                    <td>3교시</td>
-    
-                    <td id="MON3"></td>
-                    <td id="TUE3"></td>
-                    <td id="WED3"></td>
-                    <td id="THU3"></td>
-                    <td id="FRI3"></td>
-                </tr>
-                <tr>
-                    <td>4교시</td>
-    
-                    <td id="MON4"></td>
-                    <td id="TUE4"></td>
-                    <td id="WED4"></td>
-                    <td id="THU4"></td>
-                    <td id="FRI4"></td>
-                </tr>
-                <tr>
-                    <td>점심시간</td>
-    
-                    <td colspan="5">
-                        <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5교시</td>
-    
-                    <td id="MON5"></td>
-                    <td id="TUE5"></td>
-                    <td id="WED5"></td>
-                    <td id="THU5"></td>
-                    <td id="FRI5"></td>
-                </tr>
-                <tr>
-                    <td>6교시</td>
-    
-                    <td id="MON6"></td>
-                    <td id="TUE6"></td>
-                    <td id="WED6"></td>
-                    <td id="THU6"></td>
-                    <td id="FRI6"></td>
-                </tr>
-                <tr>
-                    <td>7교시</td>
-    
-                    <td id="MON7"></td>
-                    <td id="TUE7"></td>
-                    <td id="WED7"></td>
-                    <td id="THU7"></td>
-                    <td id="FRI7"></td>
-                </tr>
-            </table>
-            <div class="plan">
-                <div class="header">
-                    <h2>일정</h2>
+
+            <div class="timetable">
+                <div class="info roundborder-top">
+                    <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                    <button onclick="location.href='./setting'">설정</button>
                 </div>
+                <div class="date">
+                    <button onclick="prevWeek();"><</button>
+                    <label id="week">무슨무슨날 시간표</label>
+                    <button onclick="nextWeek();">></button>
+                    <button onclick="todayWeek();">오늘</button>
+                </div>
+                <div class="divTable">
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            /
+                        </div>
+                        <div class="tableCol">
+                            월요일
+                        </div>
+                        <div class="tableCol">
+                            화요일
+                        </div>
+                        <div class="tableCol">
+                            수요일
+                        </div>
+                        <div class="tableCol">
+                            목요일
+                        </div>
+                        <div class="tableCol">
+                            금요일
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            1교시
+                        </div>
+
+                        <div class="tableCol MON1">
+                        </div>
+                        <div class="tableCol TUE1">
+                        </div>
+                        <div class="tableCol WED1">
+                        </div>
+                        <div class="tableCol THU1">
+                        </div>
+                        <div class="tableCol FRI1">
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            2교시
+                        </div>
+
+                        <div class="tableCol MON2">
+                        </div>
+                        <div class="tableCol TUE2">
+                        </div>
+                        <div class="tableCol WED2">
+                        </div>
+                        <div class="tableCol THU2">
+                        </div>
+                        <div class="tableCol FRI2">
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            3교시
+                        </div>
+
+                        <div class="tableCol MON3">
+                        </div>
+                        <div class="tableCol TUE3">
+                        </div>
+                        <div class="tableCol WED3">
+                        </div>
+                        <div class="tableCol THU3">
+                        </div>
+                        <div class="tableCol FRI3">
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            4교시
+                        </div>
+
+                        <div class="tableCol MON4">
+                        </div>
+                        <div class="tableCol TUE4">
+                        </div>
+                        <div class="tableCol WED4">
+                        </div>
+                        <div class="tableCol THU4">
+                        </div>
+                        <div class="tableCol FRI4">
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            점심시간
+                        </div>
+                        <div class="lunch">
+                            <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></a>
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            5교시
+                        </div>
+
+                        <div class="tableCol MON5">
+                        </div>
+                        <div class="tableCol TUE5">
+                        </div>
+                        <div class="tableCol WED5">
+                        </div>
+                        <div class="tableCol THU5">
+                        </div>
+                        <div class="tableCol FRI5">
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            6교시
+                        </div>
+
+                        <div class="tableCol MON6">
+                        </div>
+                        <div class="tableCol TUE6">
+                        </div>
+                        <div class="tableCol WED6">
+                        </div>
+                        <div class="tableCol THU6">
+                        </div>
+                        <div class="tableCol FRI6">
+                        </div>
+                    </div>
+                    <div class="tableRow">
+                        <div class="tableCol">
+                            7교시
+                        </div>
+
+                        <div class="tableCol MON7">
+                        </div>
+                        <div class="tableCol TUE7">
+                        </div>
+                        <div class="tableCol WED7">
+                        </div>
+                        <div class="tableCol THU7">
+                        </div>
+                        <div class="tableCol FRI7">
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="footer">
+                </div>
+            </div>
+
+            
+        <div class="plan">
+            <div class="header">
+                <h2>일정</h2>
+            </div>
+            <ul>
+                <li>
+                    mm월 dd일
+                </li>
                 <ul>
                     <li>
-                        mm월 dd일
+                        asdf
                     </li>
-                    <ul>
-                        <li>
-                            asdf
-                        </li>
-                    </ul>
-                    <li>
-                        ㅡㅡdnjf ㅇㅇdlf
-                    </li>
-                    <ul>
-                        <li>
-                            ㅁㄴㅇㄹ
-                        </li>
-                        <li>
-                            fdsa
-                        </li>
-                    </ul>
                 </ul>
-                What is Lorem Ipsum?
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
-Why do we use it?
-It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-            </div>
-        </main>
-
-        <footer>
+                <li>
+                    ㅡㅡdnjf ㅇㅇdlf
+                </li>
+                <ul>
+                    <li>
+                        ㅁㄴㅇㄹ
+                    </li>
+                    <li>
+                        fdsa
+                    </li>
+                </ul>
+            </ul>
+            What is Lorem Ipsum?
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             
-        </footer>
+            Why do we use it?
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+        </div>
 
 
 
-        <script>
-            var date = getToday()
-            var jsdate = new Date//(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
-            if(getCookie("grade")==undefined) setCookie("grade", 1, 30)
-            if(getCookie("class")==undefined) setCookie("class", 1, 30)
-            update(getCookie("grade"), getCookie("class"), date)
-            console.log("20211001")
-        </script>
+    </main>
+    <main class="mobile-main">
+        <div class="mobile-header">
+            <div class="mobile-info-block">
+                <label id="mobile-info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                <button onclick="location.href='./setting'">설정</button>
+            </div>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>월요일</b>
+                        </div>
+                        <div class="mobile-table-row MON1">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON2">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON3">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON4">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON5">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON6">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>화요일</b>
+                        </div>
+                        <div class="mobile-table-row TUE1">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE2">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE3">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE4">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE5">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE6">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>수요일</b>
+                        </div>
+                        <div class="mobile-table-row WED1">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED2">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED3">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED4">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED5">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED6">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>목요일</b>
+                        </div>
+                        <div class="mobile-table-row THU1">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU2">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU3">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU4">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU5">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU6">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>금요일</b>
+                        </div>
+                        <div class="mobile-table-row FRI1">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI2">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI3">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI4">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI5">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI6">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI7">
+                            -
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
+    
+    
+
+    <script src="./js/main.js"></script>
     </body>
 </html>
 

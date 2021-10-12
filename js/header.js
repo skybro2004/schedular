@@ -65,13 +65,17 @@ function update(grade, schlClass, date){
                 for(const item of data.data){
                     //console.log(item.weekday_str + item.period + "|" + item.item);
                     document.getElementById("info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
+                    document.getElementById("mobile-info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
                     var subject = String(item.item)
                     if(subject.startsWith('선택')){
                         if(getCookie("select" + subject.charAt(subject.length-1))!=undefined){
                             subject = getCookie("select" + subject.charAt(subject.length-1))
                         }
                     }
-                    document.getElementById(String(item.weekday_str + item.period)).innerHTML = subject
+                    console.log(String(item.weekday_str + item.period))
+                    console.log(document.getElementsByClassName(String(item.weekday_str + item.period)))
+                    document.getElementsByClassName(String(item.weekday_str + item.period))[0].innerHTML = subject
+                    document.getElementsByClassName(String(item.weekday_str + item.period))[1].innerHTML = subject
                 }
                 var dateFrom = data.header.dateFrom
                 var dateTo = data.header.dateTo
@@ -90,7 +94,7 @@ function update(grade, schlClass, date){
 function clear(){
     for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
         for(var period=1; period<8; period++){
-            document.getElementById(String(weekday + period)).innerHTML = " "
+            document.getElementsByClassName(String(weekday + period)).innerHTML = " "
         }
     }
 
