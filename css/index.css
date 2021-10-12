@@ -30,10 +30,13 @@
     --bgopacity: rgb(124, 124, 124, 0.2);
     --font-color: white;
     --border-color: white;
+    --swiper-pagination-bullet-horizontal-gap: 10px;
 }
 
+/*==========main==========*/
+
 *{
-    font-family: 'S-Core Dream regular';
+    font-family: var(--font-medium);
     color: var(--font-color);
 }
 
@@ -45,7 +48,7 @@ header{
     height: 70px;
 }
 
-main{
+.main-pc{
     width: 100%;
     max-height: 500px;
     display: flex;
@@ -54,28 +57,173 @@ main{
     justify-content: center;
 }
 
-table {
-    width: 550px;
-    min-width: 500px;
-    background-color: var(--bgopacity);
-    border: 3px solid var(--border-color);
-    border-collapse: collapse;
-    border-radius: 5px;
-    float: left;
-}
-
-td{
-    width: 80px;
-    height: 40px;
-    text-align: center;
-    border: 2px solid var(--border-color);
-}
-
 button{
     background-color: var(--bgopacity);
     color: white;
 }
 
+
+
+/*==========시간표==========*/
+.timetable, .divTable{
+    width: 550px;
+    text-align: center;
+}
+.info, .date, .footer{
+    width: 547px;
+}
+.tableCol, .info, .date{
+    height: 42px;
+    vertical-align:middle;
+    align-items: center;
+}
+.info, .date, .lunch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lunch{
+    width: 458px; height:40px
+}
+
+.divTable{
+    display: table;
+    table-layout: fixed;
+}
+.tableRow{
+    display: table-row;
+}
+.tableCol{
+    display: table-cell;
+    
+}
+.info, .divTable, .tableRow, .tableCol, .footer{
+    border: 3px solid white;
+    border-collapse: collapse;
+}
+.date{
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+}
+.roundborder-top{
+    border-radius: 5px 5px 0 0;
+}
+.footer{
+    border-radius: 0 0  5px 5px;
+    border-top: 0;
+    height: 23px;
+}
+
+
+/*==========일정==========*/
+.header{
+    width: 100%;
+    text-align: center;
+}
+.plan{
+    margin-left: 50px;
+    width: 300px;
+    height: 519px;
+    overflow: auto;
+    float: left;
+    background-color: var(--bgopacity);
+    border: 3px solid var(--border-color);
+    border-radius: 5px;
+}
+.plan::-webkit-scrollbar{
+    width: 6px;
+}
+.plan::-webkit-scrollbar-thumb{
+    height: 17%;
+    background-color: rgba(255,255,255,1);
+    /* 스크롤바 둥글게 설정    */
+    border-radius: 10px;
+}
+
+
+
+
+footer{
+    clear: both;
+}
+
+
+/*==========모바일==========*/
+
+@media (min-width: 717px) and (max-width:991px) {
+    .plan{
+        width: 550px;
+        min-width: 500px;
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+}
+
+@media (min-width:716px) {
+    .mobile-main{
+        display: none !important;
+    }
+}
+@media (max-width:716px) {
+    .timetable{
+        display: none !important;
+    }
+    .plan{
+        display: none !important;
+    }
+    header{
+        height: 15px;
+    }
+}
+
+.swiper-button-next, .swiper-button-prev{
+    color: white;
+}
+.swiper-slide *{
+    color: rgba(155, 155, 155, 0.5);
+}
+.swiper-slide-active *{
+    color: white;
+}
+.swiper-pagination-bullet{
+    background: transparent; opacity: 1;
+    
+}
+.swiper-pagination-bullet span{
+    color: rgba(155, 155, 155, 0.5);
+}
+.swiper-pagination-bullet-active span{
+    color: white;
+}
+
+.mobile-table{
+    width: 100%;
+}
+.mobile-table-row{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+.mobile-header{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mobile-info-block{
+    min-width: 50%;
+    max-width: 80%;
+    background-color: rgb(50, 50, 50);
+    border-radius: 10px;
+    padding: 10px 40px;
+    text-align: center;
+}
+
+
+
+/*==========설정==========*/
 select{
     width: 100px;
     background-color: var(--bgopacity);
@@ -89,62 +237,4 @@ select#class{
 
 option{
     background: gray;
-}
-#class1{
-    background: yellow;
-}
-
-.plan{
-    margin-left: 50px;
-    width: 300px;
-    height: 519px;
-    overflow: auto;
-    float: left;
-    background-color: var(--bgopacity);
-    border: 3px solid var(--border-color);
-    border-radius: 5px;
-}
-
-.plan::-webkit-scrollbar{
-    width: 6px;
-}
-.plan::-webkit-scrollbar-thumb{
-    height: 17%;
-    background-color: rgba(255,255,255,1);
-    /* 스크롤바 둥글게 설정    */
-    border-radius: 10px;
-}
-
-.header{
-    width: 100%;
-    text-align: center;
-}
-
-footer{
-    clear: both;
-}
-
-
-@media (min-width: 717px) and (max-width:991px) {
-    .plan{
-        width: 550px;
-        min-width: 500px;
-        margin-left: 0px;
-        margin-top: 50px;
-    }
-}
-
-@media (min-width:716px) {
-    .swiper-container{
-        display: none !important;
-    }
-}
-@media (max-width:716px) {
-    .timetable{
-        display: none !important;
-    }
-    .plan{
-        display: none !important;
-    }
-
 }

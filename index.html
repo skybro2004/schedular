@@ -7,58 +7,22 @@
         <title>
             시간표
         </title>
-        <link rel="stylesheet" href="./css/index.css" type="text/css">
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+        <link rel="stylesheet" href="./css/index.css" type="text/css">
         <style>
-            .timetable, .divTable{
-                width: 550px;
-                text-align: center;
-            }
-            .info, .date, .footer{
-                width: 547px;
-            }
-            .tableCol, .info, .date{
-                height: 42px;
-                vertical-align:middle;
-                align-items: center;
-            }
-            .info, .date, .lunch{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            .lunch{
-                width: 458px; height:40px
-            }
 
-            .divTable{
-                display: table;
-                table-layout: fixed;
+            /*mobile test*/
+            /*
+            .swiper-container{
+                border: 1px solid red;
             }
-            .tableRow{
-                display: table-row;
+            .swiper-wrapper{
+                border: 1px solid green;
             }
-            .tableCol{
-                display: table-cell;
-                
+            .swiper-slide{
+                border: 1px solid blue;
             }
-            .info, .divTable, .tableRow, .tableCol, .footer{
-                border: 3px solid white;
-                border-collapse: collapse;
-            }
-            .date{
-                border-left: 3px solid white;
-                border-right: 3px solid white;
-            }
-            .roundborder-top{
-                border-radius: 5px 5px 0 0;
-            }
-            .footer{
-                border-radius: 0 0  5px 5px;
-                border-top: 0;
-                height: 23px;
-            }
-
+            */
 
         </style>
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
@@ -70,7 +34,7 @@
         <header>
             
         </header>
-        <main>
+        <main class="main-pc">
 
 
             <div class="timetable">
@@ -109,60 +73,64 @@
                         <div class="tableCol">
                             1교시
                         </div>
-                        <div id="MON1" class="tableCol">
+
+                        <div class="tableCol MON1">
                         </div>
-                        <div id="TUE1" class="tableCol">
+                        <div class="tableCol TUE1">
                         </div>
-                        <div id="WED1" class="tableCol">
+                        <div class="tableCol WED1">
                         </div>
-                        <div id="THU1" class="tableCol">
+                        <div class="tableCol THU1">
                         </div>
-                        <div id="FRI1" class="tableCol">
+                        <div class="tableCol FRI1">
                         </div>
                     </div>
                     <div class="tableRow">
                         <div class="tableCol">
                             2교시
                         </div>
-                        <div id="MON2" class="tableCol">
+
+                        <div class="tableCol MON2">
                         </div>
-                        <div id="TUE2" class="tableCol">
+                        <div class="tableCol TUE2">
                         </div>
-                        <div id="WED2" class="tableCol">
+                        <div class="tableCol WED2">
                         </div>
-                        <div id="THU2" class="tableCol">
+                        <div class="tableCol THU2">
                         </div>
-                        <div id="FRI2" class="tableCol">
+                        <div class="tableCol FRI2">
                         </div>
                     </div>
                     <div class="tableRow">
                         <div class="tableCol">
                             3교시
                         </div>
-                        <div id="MON3" class="tableCol">
+
+                        <div class="tableCol MON3">
                         </div>
-                        <div id="TUE3" class="tableCol">
+                        <div class="tableCol TUE3">
                         </div>
-                        <div id="WED3" class="tableCol">
+                        <div class="tableCol WED3">
                         </div>
-                        <div id="THU3" class="tableCol">
+                        <div class="tableCol THU3">
                         </div>
-                        <div id="FRI3" class="tableCol">
+                        <div class="tableCol FRI3">
                         </div>
                     </div>
                     <div class="tableRow">
                         <div class="tableCol">
                             4교시
                         </div>
-                        <div id="MON4" class="tableCol">
+
+                        <div class="tableCol MON4">
                         </div>
-                        <div id="TUE4" class="tableCol">
+                        <div class="tableCol TUE4">
                         </div>
-                        <div id="WED4" class="tableCol">
+                        <div class="tableCol WED4">
                         </div>
-                        <div id="THU4" class="tableCol">
+                        <div class="tableCol THU4">
                         </div>
-                        <div id="FRI4" class="tableCol">
+                        <div class="tableCol FRI4">
                         </div>
                     </div>
                     <div class="tableRow">
@@ -177,45 +145,48 @@
                         <div class="tableCol">
                             5교시
                         </div>
-                        <div id="MON5" class="tableCol">
+
+                        <div class="tableCol MON5">
                         </div>
-                        <div id="TUE5" class="tableCol">
+                        <div class="tableCol TUE5">
                         </div>
-                        <div id="WED5" class="tableCol">
+                        <div class="tableCol WED5">
                         </div>
-                        <div id="THU5" class="tableCol">
+                        <div class="tableCol THU5">
                         </div>
-                        <div id="FRI5" class="tableCol">
+                        <div class="tableCol FRI5">
                         </div>
                     </div>
                     <div class="tableRow">
                         <div class="tableCol">
                             6교시
                         </div>
-                        <div id="MON6" class="tableCol">
+
+                        <div class="tableCol MON6">
                         </div>
-                        <div id="TUE6" class="tableCol">
+                        <div class="tableCol TUE6">
                         </div>
-                        <div id="WED6" class="tableCol">
+                        <div class="tableCol WED6">
                         </div>
-                        <div id="THU6" class="tableCol">
+                        <div class="tableCol THU6">
                         </div>
-                        <div id="FRI6" class="tableCol">
+                        <div class="tableCol FRI6">
                         </div>
                     </div>
                     <div class="tableRow">
                         <div class="tableCol">
                             7교시
                         </div>
-                        <div id="MON7" class="tableCol">
+
+                        <div class="tableCol MON7">
                         </div>
-                        <div id="TUE7" class="tableCol">
+                        <div class="tableCol TUE7">
                         </div>
-                        <div id="WED7" class="tableCol">
+                        <div class="tableCol WED7">
                         </div>
-                        <div id="THU7" class="tableCol">
+                        <div class="tableCol THU7">
                         </div>
-                        <div id="FRI7" class="tableCol">
+                        <div class="tableCol FRI7">
                         </div>
                     </div>
                 </div>
@@ -226,103 +197,6 @@
             </div>
 
             
-            <!--
-                <table class="schedular_table">
-                    <tr>
-                        <td colspan="6">
-                            <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
-                            <button onclick="location.href='./setting'">설정</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="6">
-                            <button onclick="prevWeek();"><</button>
-                            <label id="week">무슨무슨날 시간표</label>
-                            <button onclick="nextWeek();">></button>
-                            <button onclick="todayWeek();">오늘</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> / </td>
-                        
-                        <td>월요일</td>
-                        <td>화요일</td>
-                        <td>수요일</td>
-                        <td>목요일</td>
-                        <td>금요일</td>
-                    </tr>
-                    <tr>
-                        <td>1교시</td>
-                        
-                        <td id="MON1"></td>
-                        <td id="TUE1"></td>
-                        <td id="WED1"></td>
-                        <td id="THU1"></td>
-                        <td id="FRI1"></td>
-                    </tr>
-                    <tr>
-                        <td>2교시</td>
-                        
-                        <td id="MON2"></td>
-                        <td id="TUE2"></td>
-                        <td id="WED2"></td>
-                        <td id="THU2"></td>
-                        <td id="FRI2"></td>
-                    </tr>
-                <tr>
-                    <td>3교시</td>
-                    
-                    <td id="MON3"></td>
-                    <td id="TUE3"></td>
-                    <td id="WED3"></td>
-                    <td id="THU3"></td>
-                    <td id="FRI3"></td>
-                </tr>
-                <tr>
-                    <td>4교시</td>
-                    
-                    <td id="MON4"></td>
-                    <td id="TUE4"></td>
-                    <td id="WED4"></td>
-                    <td id="THU4"></td>
-                    <td id="FRI4"></td>
-                </tr>
-                <tr>
-                    <td>점심시간</td>
-                    
-                    <td colspan="5">
-                        <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>5교시</td>
-                        
-                        <td id="MON5"></td>
-                        <td id="TUE5"></td>
-                        <td id="WED5"></td>
-                        <td id="THU5"></td>
-                        <td id="FRI5"></td>
-                    </tr>
-                    <tr>
-                        <td>6교시</td>
-                        
-                        <td id="MON6"></td>
-                        <td id="TUE6"></td>
-                        <td id="WED6"></td>
-                        <td id="THU6"></td>
-                        <td id="FRI6"></td>
-                    </tr>
-                    <tr>
-                    <td>7교시</td>
-                    
-                    <td id="MON7"></td>
-                    <td id="TUE7"></td>
-                    <td id="WED7"></td>
-                    <td id="THU7"></td>
-                    <td id="FRI7"></td>
-                </tr>
-            </table>
-        -->
         <div class="plan">
             <div class="header">
                 <h2>일정</h2>
@@ -358,32 +232,166 @@
 
 
     </main>
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-              1번 슬라이드입니다.<br>마우스로 움직여보세요.
-          </div>
-          <div class="swiper-slide">
-              2번 슬라이드입니다.<br>
-              레이아웃만 제대로 설정되어 있다면 슬라이드에 어떤 것이든 넣을 수 있습니다.
-          </div>
-          <div class="swiper-slide">
-              <img src="https://image.flaticon.com/icons/png/128/1933/1933588.png" alt=""><br>
-              이렇게 이미지도 넣을 수 있습니다.
-          </div>
-            
-            ...
-    
+    <main class="mobile-main">
+        <div class="mobile-header">
+            <div class="mobile-info-block">
+                <label id="mobile-info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                <button onclick="location.href='./setting'">설정</button>
+            </div>
         </div>
-          <!-- If we need pagination -->
-          <div class="swiper-pagination"></div>
-    
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          
-          <div class="swiper-scrollbar"></div>
-      </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>월요일</b>
+                        </div>
+                        <div class="mobile-table-row MON1">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON2">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON3">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON4">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON5">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON6">
+                            -
+                        </div>
+                        <div class="mobile-table-row MON7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>화요일</b>
+                        </div>
+                        <div class="mobile-table-row TUE1">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE2">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE3">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE4">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE5">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE6">
+                            -
+                        </div>
+                        <div class="mobile-table-row TUE7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>수요일</b>
+                        </div>
+                        <div class="mobile-table-row WED1">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED2">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED3">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED4">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED5">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED6">
+                            -
+                        </div>
+                        <div class="mobile-table-row WED7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>목요일</b>
+                        </div>
+                        <div class="mobile-table-row THU1">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU2">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU3">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU4">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU5">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU6">
+                            -
+                        </div>
+                        <div class="mobile-table-row THU7">
+                            -
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="mobile-table">
+                        <div class="mobile-table-row mobile-table-header">
+                            <b>금요일</b>
+                        </div>
+                        <div class="mobile-table-row FRI1">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI2">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI3">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI4">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI5">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI6">
+                            -
+                        </div>
+                        <div class="mobile-table-row FRI7">
+                            -
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            
+            <div class="swiper-scrollbar"></div>
+        </div>
+    </main>
     <footer>
         
     </footer>
@@ -391,60 +399,6 @@
     
 
     <script src="./js/main.js"></script>
-    <!--
-        <script>
-            var mySwiper = new Swiper('.swiper-container', {
-                // 슬라이드를 버튼으로 움직일 수 있습니다.
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                
-                // 현재 페이지를 나타내는 점이 생깁니다. 클릭하면 이동합니다.
-                pagination: {
-                    el: '.swiper-pagination',
-                    type: 'bullets',
-                },
-                
-                // 현재 페이지를 나타내는 스크롤이 생깁니다. 클릭하면 이동합니다.
-                scrollbar: {
-                    el: '.swiper-scrollbar',
-                    draggable: true,
-                },
-                
-                // 3초마다 자동으로 슬라이드가 넘어갑니다. 1초 = 1000
-                autoplay: {
-                    delay: 3000,
-                },
-            });
-        </script>
-    -->
-    <script>
-        var mySwiper = new Swiper('.swiper-container', {
-// 슬라이드를 버튼으로 움직일 수 있습니다.
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-    
-// 현재 페이지를 나타내는 점이 생깁니다. 클릭하면 이동합니다.
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'bullets',
-  },
-
-// 현재 페이지를 나타내는 스크롤이 생깁니다. 클릭하면 이동합니다.
-  scrollbar: {
-    el: '.swiper-scrollbar',
-    draggable: true,
-  },
-    
-// 3초마다 자동으로 슬라이드가 넘어갑니다. 1초 = 1000
-  autoplay: {
-    delay: 3000,
-  },
-});
-    </script>
     </body>
 </html>
 

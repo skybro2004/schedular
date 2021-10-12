@@ -25,3 +25,35 @@ window.addEventListener('resize', function () {
         isMobile = false
     }
 });
+
+var weekday = jsdate.getDay() - 1
+if(weekday==-1 || weekday==5){
+    weekday = 0
+}
+console.log(weekday)
+var weekdays = ["월", "화", "수", "목", "금"]
+
+var mySwiper = new Swiper('.swiper-container', {
+    // 슬라이드를 버튼으로 움직일 수 있습니다.
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    // 현재 페이지를 나타내는 점이 생깁니다. 클릭하면 이동합니다.
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable:true,
+        renderBullet: function (index, className) {
+            return '<div class="' + className + '"><span>' + (weekdays[index]) + '</span></div>';
+        }
+    },
+    // 현재 페이지를 나타내는 스크롤이 생깁니다. 클릭하면 이동합니다.
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+    },
+    slidesPerView: 3,
+    centeredSlides: true,
+    initialSlide: weekday
+});
