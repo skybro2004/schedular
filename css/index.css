@@ -148,8 +148,7 @@ footer{
 }
 
 
-/*==========모바일==========*/
-
+/*==========태블릿==========*/
 @media (min-width: 717px) and (max-width:991px) {
     .plan{
         width: 550px;
@@ -159,6 +158,7 @@ footer{
     }
 }
 
+/*==========모바일==========*/
 @media (min-width:716px) {
     .mobile-main{
         display: none !important;
@@ -176,6 +176,9 @@ footer{
     }
 }
 
+.swiper-container{
+    overflow: auto;
+}
 .swiper-button-next, .swiper-button-prev{
     color: white;
 }
