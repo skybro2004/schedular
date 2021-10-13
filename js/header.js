@@ -68,7 +68,7 @@ function update(grade, schlClass, date){
                     document.getElementById("mobile-info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
                     var subject = String(item.item)
                     if(subject.startsWith('선택')){
-                        if(getCookie("select" + subject.charAt(subject.length-1))!=undefined){
+                        if(getCookie("select" + subject.charAt(subject.length-1))!=undefined && getCookie("select" + subject.charAt(subject.length-1))!="none"){
                             subject = getCookie("select" + subject.charAt(subject.length-1))
                         }
                     }

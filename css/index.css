@@ -65,6 +65,9 @@ button{
 
 
 /*==========시간표==========*/
+.timetable{
+    background-color: var(--bgopacity);
+}
 .timetable, .divTable{
     width: 550px;
     text-align: center;
@@ -161,6 +164,9 @@ footer{
 /*==========모바일==========*/
 @media (min-width:716px) {
     .mobile-main{
+        display: none !important;
+    }
+    .mobile-footer{
         display: none !important;
     }
 }
