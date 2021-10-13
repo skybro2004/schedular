@@ -79,7 +79,8 @@ function update(grade, schlClass, date){
                 }
                 var dateFrom = data.header.dateFrom
                 var dateTo = data.header.dateTo
-                document.getElementById("week").innerHTML = format("{0}월 {1}일 ~ {2}월 {3}일 시간표", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
+                document.getElementsByClassName("week")[0].innerHTML = format("{0}월 {1}일 ~ {2}월 {3}일 시간표", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
+                document.getElementsByClassName("week")[1].innerHTML = format("{0}/{1}~{2}/{3}", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
             }
             else if(data.code==404){
                 alert("시간표 정보가 없어요!")

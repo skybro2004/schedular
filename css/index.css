@@ -30,7 +30,7 @@
     --bgopacity: rgb(124, 124, 124, 0.2);
     --font-color: white;
     --border-color: white;
-    --swiper-pagination-bullet-horizontal-gap: 10px;
+    --swiper-pagination-bullet-horizontal-gap: 20px;
 }
 
 /*==========main==========*/
@@ -176,17 +176,31 @@ footer{
     }
 }
 
+
+.mobile-main{
+    padding-bottom: 50px;
+}
 .swiper-container{
     overflow: hidden auto;
 }
 .swiper-button-next, .swiper-button-prev{
     color: white;
+    position: fixed;
 }
 .swiper-slide *{
     color: rgba(155, 155, 155, 0.5);
 }
 .swiper-slide-active *{
     color: white;
+}
+.swiper-pagination{
+    position: fixed;
+    background-color: var(--bgcolor);
+    border-top: 1px solid rgb(255, 255, 255, 0.3);
+    bottom: 0 !important;
+    height: 50px;
+    line-height: 50px;
+    
 }
 .swiper-pagination-bullet{
     background: transparent; opacity: 1;
@@ -224,6 +238,16 @@ footer{
     text-align: center;
 }
 
+.mobile-control{
+    border-top: 1px solid rgb(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mobile-control-date{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
 
 
 /*==========설정==========*/

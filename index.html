@@ -44,9 +44,9 @@
                 </div>
                 <div class="date">
                     <button onclick="prevWeek();"><</button>
-                    <label id="week">무슨무슨날 시간표</label>
+                    <label class="week">무슨무슨날 시간표</label>
                     <button onclick="nextWeek();">></button>
-                    <button onclick="todayWeek();">오늘</button>
+                    <button onclick="todayWeek();">이번주</button>
                 </div>
                 <div class="divTable">
                     <div class="tableRow">
@@ -384,15 +384,26 @@
             </div>
 
             <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
+            
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
             
         </div>
+
+        <div class="mobile-control">
+            <div class="mobile-control-date">
+                <button onclick="prevWeek();"><</button>
+                <label class="week">무슨무슨날 시간표</label>
+                <button onclick="nextWeek();">></button>
+                <button onclick="todayWeek();">이번주</button>
+            </div>
+
+            <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></a>
+        </div>
     </main>
     <footer>
-        
+        <div class="swiper-pagination"></div>
     </footer>
     
     
