@@ -177,7 +177,7 @@ footer{
 }
 
 .swiper-container{
-    overflow: auto;
+    overflow: hidden auto;
 }
 .swiper-button-next, .swiper-button-prev{
     color: white;
