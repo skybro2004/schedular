@@ -65,7 +65,7 @@ button{
 
 
 /*==========시간표==========*/
-.timetable{
+.roundborder-top, .date, .divTable, .footer{
     background-color: var(--bgopacity);
 }
 .timetable, .divTable{
@@ -132,6 +132,7 @@ button{
     background-color: var(--bgopacity);
     border: 3px solid var(--border-color);
     border-radius: 5px;
+    padding-right: 20px;
 }
 .plan::-webkit-scrollbar{
     width: 6px;
@@ -141,6 +142,11 @@ button{
     background-color: rgba(255,255,255,1);
     /* 스크롤바 둥글게 설정    */
     border-radius: 10px;
+}
+.plan-list{
+    word-break: keep-all;
+    
+    margin-right: 20px;
 }
 
 
