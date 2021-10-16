@@ -65,57 +65,60 @@ button{
 
 
 /*==========시간표==========*/
-.roundborder-top, .date, .divTable, .footer{
-    background-color: var(--bgopacity);
+.timetable{
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 0.5em;
+    padding: 0.4em 0.5em;
 }
-.timetable, .divTable{
-    width: 550px;
-    text-align: center;
+.info{
+    width: inherit;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.3em;
+    padding: 0.2em 0.4em;
 }
-.info, .date, .footer{
-    width: 547px;
+.date{
+    width: inherit;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 0.3em;
+    padding: 0.2em 0.4em;
+    margin-top: 0.4em;
 }
-.tableCol, .info, .date{
-    height: 42px;
-    vertical-align:middle;
-    align-items: center;
-}
-.info, .date, .lunch{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.lunch{
-    width: 458px; height:40px;
-    text-decoration: none;
-}
-
 .divTable{
     display: table;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-top: 0.4em;
+    border-radius: 5px;
     table-layout: fixed;
+    padding: 0.3em 0.1em;
 }
 .tableRow{
     display: table-row;
 }
 .tableCol{
     display: table-cell;
+    width: 6em;
+    height: 2em;
+    padding: 0.3em 0.3em;
+    vertical-align: middle;
+    text-align: center;
     
 }
-.info, .divTable, .tableRow, .tableCol, .footer{
-    border: 3px solid white;
-    border-collapse: collapse;
+.tableCol{
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
-.date{
-    border-left: 3px solid white;
-    border-right: 3px solid white;
+.tableCol:last-child{
+    border-right: 0;
 }
-.roundborder-top{
-    border-radius: 5px 5px 0 0;
+
+.tableRow .tableCol{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-.footer{
-    border-radius: 0 0  5px 5px;
-    border-top: 0;
-    height: 23px;
+.tableRow:last-child .tableCol{
+    border-bottom: 0;
+}
+
+.lunch{
+    border-right: 0;
 }
 
 
@@ -126,12 +129,11 @@ button{
 }
 .plan{
     margin-left: 50px;
-    width: 300px;
-    height: 519px;
+    width: initial;
+    height: initial;
     overflow: auto;
     float: left;
-    background-color: var(--bgopacity);
-    border: 3px solid var(--border-color);
+    background-color: rgba(255, 255, 255, 0.079);
     border-radius: 5px;
     padding-right: 20px;
 }
