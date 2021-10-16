@@ -72,8 +72,6 @@ function update(grade, schlClass, date){
                             subject = getCookie("select" + subject.charAt(subject.length-1))
                         }
                     }
-                    console.log(String(item.weekday_str + item.period))
-                    console.log(document.getElementsByClassName(String(item.weekday_str + item.period)))
                     document.getElementsByClassName(String(item.weekday_str + item.period))[0].innerHTML = subject
                     document.getElementsByClassName(String(item.weekday_str + item.period))[1].innerHTML = subject
                 }

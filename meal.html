@@ -31,20 +31,22 @@
                     })
                     .then(data => {
                         console.log(data)
-                        document.getElementById("mealList").innerHTML = ""
+                        document.getElementsByClassName("meal-main-list")[0].innerHTML = ""
                         document.getElementById("date").innerText = date
                         if(data.code==200){
-                            var mealList = document.getElementById("mealList")
+                            var mealList = document.getElementsByClassName("meal-main-list")[0]
                             for(const item of data.meal){
                                 console.log(item)
                                 var temp = document.createElement('li')
+                                temp.className = "meal-main-list-item"
                                 temp.innerHTML = item
                                 mealList.appendChild(temp)
                             }
-                            document.getElementById("cal").innerHTML = data.cal
+                            document.getElementsByClassName("meal-footer-kcal")[0].innerHTML = data.cal
                         }
                         else if(data.code==404){
-                            document.getElementById("cal").innerHTML = "급식이 없어요!"
+                            document.getElementsByClassName("meal-main-list")[0].innerHTML = "급식이 없어요!"
+                            document.getElementsByClassName("meal-footer-kcal")[0].innerHTML = "- Kcal"
                         }
                         else{
                             console.log(data.code)
@@ -66,15 +68,32 @@
             }
         </script>
     </head>
-    <body>
-        <div>
-            <button id="prev" onclick="prevDay();">&lt;</button>
-            <button id="date">날짜선택</button>
-            <button id="next" onclick="nextDay();">&gt;</button>
-        </div>
-        <ul id="mealList">
-        </ul>
-        <p id="cal"></p>
+    <body class="body-meal">
+
+
+        <main class="main-meal">
+            <div class="meal">
+                <div class="meal-header">
+                    <div class="meal-header-date">
+                        <button id="prev" onclick="prevDay();">&lt;</button>
+                        <button id="date">날짜선택</button>
+                        <button id="next" onclick="nextDay();">&gt;</button>
+                    </div>
+                </div>
+                
+                <div class="meal-main">
+                    <ul class="meal-main-list">
+                        <li class="meal-main-list-item">
+                            급식이 없어요!
+                        </li>
+                    </ul>
+                </div>
+                <div class="meal-footer">
+                    <p class="meal-footer-kcal">- Kcal</p>
+                </div>
+            </div>
+        </main>
+
         <script>
             var jsdate = new Date()
             var date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')

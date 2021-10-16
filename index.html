@@ -26,6 +26,7 @@
 
         </style>
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+        <script src="https://kit.fontawesome.com/bfa60ca031.js" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <script src="./js/header.js"></script>
     </head>
@@ -39,12 +40,12 @@
 
             <div class="timetable">
                 <div class="info roundborder-top">
-                    <label id="info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                    <label id="info">-학년 -반 시간표</label>
                     <button onclick="location.href='./setting'">설정</button>
                 </div>
                 <div class="date">
                     <button onclick="prevWeek();">&lt;</button>
-                    <label class="week">무슨무슨날 시간표</label>
+                    <label class="week">-월 -일 ~ -월 -일 시간표</label>
                     <button onclick="nextWeek();">&gt;</button>
                     <button onclick="todayWeek();">이번주</button>
                 </div>
@@ -138,7 +139,7 @@
                             점심시간
                         </div>
                         <div class="lunch">
-                            <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></a>
+                            <a href="javascript:launch()" style="text-decoration: none;">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
                         </div>
                     </div>
                     <div class="tableRow">
@@ -203,15 +204,6 @@
             </div>
             <ul class="plan-list">
                 <li>
-                    15일(금)
-                </li>
-                <ul>
-                    <li>
-                        보건교육
-                    </li>
-                </ul>
-
-                <li>
                     22일(금)
                 </li>
                 <ul>
@@ -238,7 +230,7 @@
     <main class="mobile-main">
         <div class="mobile-header">
             <div class="mobile-info-block">
-                <label id="mobile-info">무슨무슨 학년 무슨무슨 반 시간표</label>
+                <label id="mobile-info">-학년 -반 시간표</label>
                 <button onclick="location.href='./setting'">설정</button>
             </div>
         </div>
@@ -397,12 +389,12 @@
         <div class="mobile-control">
             <div class="mobile-control-date">
                 <button onclick="prevWeek();">&lt;</button>
-                <label class="week">무슨무슨날 시간표</label>
+                <label class="week">-/- ~ -/-</label>
                 <button onclick="nextWeek();">&gt;</button>
                 <button onclick="todayWeek();">이번주</button>
             </div>
 
-            <a href="javascript:launch()">오늘 급식!<span>&#128279;</span></a>
+            <a href="javascript:launch()">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
         </div>
     </main>
     <footer class="mobile-footer">

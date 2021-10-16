@@ -86,7 +86,8 @@ button{
     align-items: center;
 }
 .lunch{
-    width: 458px; height:40px
+    width: 458px; height:40px;
+    text-decoration: none;
 }
 
 .divTable{
@@ -276,4 +277,63 @@ select#class{
 
 option{
     background: gray;
+}
+
+
+/*==========밥==========*/
+.main-meal{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 10%;
+    font-size: 1.1rem;
+}
+.meal{
+    background-color: rgb(124, 124, 124, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    width: 17em;
+}
+.meal-header-date{
+    background-color: rgb(124, 124, 124, 0.15);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+}
+.meal-header-date *{
+    height: 2rem;
+    border: 0;
+    outline: 0;
+}
+.meal-header-date #prev{
+    float: left;
+    width: 2em;
+    border-right: 1px solid var(--bgopacity);
+}
+.meal-header-date #date{
+    float: left;
+    width: 100%;
+    border-right: 1px solid var(--bgopacity);
+}
+.meal-header-date #next{
+    float: right;
+    width: 2em;
+}
+.meal-main-list{
+    background-color: rgb(124, 124, 124, 0.15);
+    border-radius: 5px;
+    padding: 0.8em 1em;
+    list-style: none;
+}
+.meal-main-list-item{
+    margin-bottom: 10px;
+}
+.meal-main-list-item:last-child{
+    margin-bottom: 0;
+}
+.meal-footer-kcal{
+    font-size: 0.9rem;
+    text-align: right;
+    margin-bottom: 0;
 }

@@ -7,21 +7,17 @@ update(getCookie("grade"), getCookie("class"), date)
 var isMobile = false
 var innerWidth = window.innerWidth;
 if(innerWidth<716){
-    console.log("mobile")
     isMobile = true
 }
 else{
-    console.log("ese")
     isMobile = false
 }
 window.addEventListener('resize', function () {
 	var innerWidth = window.innerWidth;
     if(innerWidth<716){
-        console.log("mobile")
         isMobile = true
     }
     else{
-        console.log("ese")
         isMobile = false
     }
 });
@@ -30,7 +26,6 @@ var weekday = jsdate.getDay() - 1
 if(weekday==-1 || weekday==5){
     weekday = 0
 }
-console.log(weekday)
 var weekdays = ["월", "화", "수", "목", "금"]
 
 var mySwiper = new Swiper('.swiper-container', {
