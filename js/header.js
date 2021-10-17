@@ -64,8 +64,6 @@ function update(grade, schlClass, date){
                 clear()
                 for(const item of data.data){
                     //console.log(item.weekday_str + item.period + "|" + item.item);
-                    document.getElementById("info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
-                    document.getElementById("mobile-info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
                     var subject = String(item.item)
                     if(subject.startsWith('선택')){
                         if(getCookie("select" + subject.charAt(subject.length-1))!=undefined && getCookie("select" + subject.charAt(subject.length-1))!="none"){
@@ -75,6 +73,8 @@ function update(grade, schlClass, date){
                     document.getElementsByClassName(String(item.weekday_str + item.period))[0].innerHTML = subject
                     document.getElementsByClassName(String(item.weekday_str + item.period))[1].innerHTML = subject
                 }
+                document.getElementById("info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
+                document.getElementById("mobile-info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
                 var dateFrom = data.header.dateFrom
                 var dateTo = data.header.dateTo
                 document.getElementsByClassName("week")[0].innerHTML = format("{0}월 {1}일 ~ {2}월 {3}일 시간표", dateFrom.substr(4, 2), dateFrom.substr(6, 2), dateTo.substr(4, 2), dateTo.substr(6, 2))
@@ -93,7 +93,7 @@ function update(grade, schlClass, date){
 function clear(){
     for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
         for(var period=1; period<8; period++){
-            document.getElementsByClassName(String(weekday + period)).innerHTML = " "
+            document.getElementsByClassName(String(weekday + period))[0].innerHTML = " "
         }
     }
 

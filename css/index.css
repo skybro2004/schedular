@@ -28,6 +28,8 @@
     --font-heavy: 'S-Core Dream heavy', sans-serif;
     --bgcolor: #121212;
     --bgopacity: rgb(124, 124, 124, 0.2);
+    --bgcontainer: rgba(255, 255, 255, 0.03);/*0.02*/
+    --bgwrapper: rgba(255, 255, 255, 0.05);/*0.05*/
     --font-color: white;
     --border-color: white;
     --swiper-pagination-bullet-horizontal-gap: 20px;
@@ -42,19 +44,21 @@
 
 body{
     background: var(--bgcolor);
+    margin: 0;
 }
 
-header{
-    height: 70px;
-}
 
 .main-pc{
-    width: 100%;
-    max-height: 500px;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 button{
@@ -66,26 +70,30 @@ button{
 
 /*==========시간표==========*/
 .timetable{
-    background-color: rgba(255, 255, 255, 0.02);
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--bgcontainer);
     border-radius: 0.5em;
-    padding: 0.4em 0.5em;
+    padding: 0.6em;
 }
 .info{
-    width: inherit;
-    background-color: rgba(255, 255, 255, 0.05);
+    width: initial;
+    background-color: var(--bgwrapper);
     border-radius: 0.3em;
-    padding: 0.2em 0.4em;
+    padding: 0.7em 0.8em;
+    text-align: center;
 }
 .date{
-    width: inherit;
-    background-color: rgba(255, 255, 255, 0.05);
+    width: initial;
+    background-color: var(--bgwrapper);
     border-radius: 0.3em;
-    padding: 0.2em 0.4em;
+    padding: 0.5em 0.8em;
     margin-top: 0.4em;
+    text-align: center;
 }
 .divTable{
     display: table;
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--bgwrapper);
     margin-top: 0.4em;
     border-radius: 5px;
     table-layout: fixed;
@@ -97,7 +105,7 @@ button{
 .tableCol{
     display: table-cell;
     width: 6em;
-    height: 2em;
+    height: 2.7em;
     padding: 0.3em 0.3em;
     vertical-align: middle;
     text-align: center;
@@ -122,35 +130,7 @@ button{
 }
 
 
-/*==========일정==========*/
-.header{
-    width: 100%;
-    text-align: center;
-}
-.plan{
-    margin-left: 50px;
-    width: initial;
-    height: initial;
-    overflow: auto;
-    float: left;
-    background-color: rgba(255, 255, 255, 0.079);
-    border-radius: 5px;
-    padding-right: 20px;
-}
-.plan::-webkit-scrollbar{
-    width: 6px;
-}
-.plan::-webkit-scrollbar-thumb{
-    height: 17%;
-    background-color: rgba(255,255,255,1);
-    /* 스크롤바 둥글게 설정    */
-    border-radius: 10px;
-}
-.plan-list{
-    word-break: keep-all;
-    
-    margin-right: 20px;
-}
+
 
 
 
@@ -162,12 +142,6 @@ footer{
 
 /*==========태블릿==========*/
 @media (min-width: 717px) and (max-width:991px) {
-    .plan{
-        width: 550px;
-        min-width: 500px;
-        margin-left: 0px;
-        margin-top: 50px;
-    }
 }
 
 /*==========모바일==========*/
@@ -180,10 +154,7 @@ footer{
     }
 }
 @media (max-width:716px) {
-    .timetable{
-        display: none !important;
-    }
-    .plan{
+    .main-pc{
         display: none !important;
     }
     header{
