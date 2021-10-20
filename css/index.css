@@ -49,7 +49,7 @@ body{
 
 
 .main-pc{
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     margin: 0;
     padding: 0;
@@ -62,8 +62,18 @@ body{
 }
 
 button{
-    background-color: var(--bgopacity);
-    color: white;
+    background-color: rgb(255, 255, 255, 0.05);
+    border: 1px solid rgb(255, 255, 255, 0.05);
+    border-radius: 0.3em;
+    transition: 0.1s;
+}
+button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+button:active{
+    background-color: rgb(255, 255, 255, 0.05);
+    border: 1px solid rgb(255, 255, 255, 0.05);
 }
 
 
@@ -95,7 +105,7 @@ button{
     display: table;
     background-color: var(--bgwrapper);
     margin-top: 0.4em;
-    border-radius: 5px;
+    border-radius: 0.3em;
     table-layout: fixed;
     padding: 0.3em 0.1em;
 }
@@ -219,7 +229,7 @@ footer{
     min-width: 50%;
     max-width: 80%;
     background-color: rgb(50, 50, 50);
-    border-radius: 10px;
+    border-radius: 0.5em;
     padding: 10px 40px;
     text-align: center;
 }
@@ -237,20 +247,7 @@ footer{
 
 
 /*==========설정==========*/
-select{
-    width: 100px;
-    background-color: var(--bgopacity);
-}
-select#grade{
-    width: 50px;
-}
-select#class{
-    width: 50px;
-}
 
-option{
-    background: gray;
-}
 
 
 /*==========밥==========*/
@@ -268,7 +265,6 @@ option{
     width: 17em;
 }
 .meal-header-date{
-    background-color: rgb(124, 124, 124, 0.15);
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
@@ -277,12 +273,14 @@ option{
 .meal-header-date *{
     height: 2rem;
     border: 0;
+    border-radius: 0;
     outline: 0;
 }
 .meal-header-date #prev{
     float: left;
     width: 2em;
     border-right: 1px solid var(--bgopacity);
+    border-radius: 5px 0 0 5px;
 }
 .meal-header-date #date{
     float: left;
@@ -292,6 +290,7 @@ option{
 .meal-header-date #next{
     float: right;
     width: 2em;
+    border-radius: 0 5px 5px 0;
 }
 .meal-main-list{
     background-color: rgb(124, 124, 124, 0.15);
@@ -309,4 +308,89 @@ option{
     font-size: 0.9rem;
     text-align: right;
     margin-bottom: 0;
+}
+
+
+/*=========test section=========*/
+.setting-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.setting-container{
+    background-color: var(--bgcontainer);
+    border-radius: 0.3em;
+    width: 20em;
+    padding: 20px;
+}
+h2, h3, h4{
+    font-weight: lighter;
+    margin: 0;
+    margin-bottom: 0.3em;
+}
+h2{
+    padding: 0.1em;
+}
+.setting-title{
+    background-color: var(--bgwrapper);
+    border-radius: 0.3em;
+    text-align: center;
+}
+.setting-wrapper{
+    margin-top: 0.5em;
+    background-color: var(--bgwrapper);
+    border-radius: 0.3em;
+    padding: 0.5em 0.8em;
+}
+.setting-done{
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+
+
+select{
+    width: 7em;
+    background-color: var(--bgwrapper);
+    border: 1px solid rgb(255, 255, 255, 0.05);
+}
+select#grade{
+    width: 3em;
+}
+select#class{
+    width: 3em;
+}
+.select-text{
+    display: inline-block;
+    width: 4em;
+}
+
+option{
+    background: #303030;
+}
+
+
+
+.link-lunch{
+    text-decoration: none;
+    position: relative;
+}
+.link-lunch::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1.5px;
+    margin: 5px 0 0;
+    transition: all 0.2s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: white;
+}
+
+.link-lunch:hover:after{
+    width: 100%;
+    opacity: 1;
 }

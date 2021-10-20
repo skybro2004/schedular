@@ -40,13 +40,13 @@
             <div class="timetable">
                 <div class="info roundborder-top">
                     <label id="info">-학년 -반 시간표</label>
-                    <button onclick="location.href='./setting'">설정</button>
+                    <button class="button" onclick="location.href='./setting'">설정</button>
                 </div>
                 <div class="date">
-                    <button onclick="prevWeek();">&lt;</button>
+                    <button class="button" onclick="prevWeek();">&lt;</button>
                     <label class="week">-월 -일 ~ -월 -일 시간표</label>
-                    <button onclick="nextWeek();">&gt;</button>
-                    <button onclick="todayWeek();">이번주</button>
+                    <button class="button" onclick="nextWeek();">&gt;</button>
+                    <button class="button" onclick="todayWeek();">이번주</button>
                 </div>
                 <div class="divTable">
                     <div class="tableRow">
@@ -142,7 +142,7 @@
                         <div class="tableCol lunch">
                         </div>
                         <div class="tableCol lunch">
-                            <a href="javascript:launch()" style="text-decoration: none;">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                            <a class="link-lunch" href="javascript:launch()">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
                         </div>
                         <div class="tableCol lunch">
                         </div>
