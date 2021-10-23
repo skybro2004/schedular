@@ -93,6 +93,7 @@ function clear(){
     for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
         for(var period=1; period<8; period++){
             document.getElementsByClassName(String(weekday + period))[0].innerHTML = " "
+            document.getElementsByClassName(String(weekday + period))[1].innerHTML = "-"
         }
     }
 
