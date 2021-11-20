@@ -39,7 +39,7 @@
                                 console.log(item)
                                 var temp = document.createElement('li')
                                 temp.className = "meal-main-list-item"
-                                temp.innerHTML = item
+                                temp.innerHTML = item.name
                                 mealList.appendChild(temp)
                             }
                             document.getElementsByClassName("meal-footer-kcal")[0].innerHTML = data.cal

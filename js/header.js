@@ -45,6 +45,7 @@ function update(grade, schlClass, date){
     url += "?date=" + date
     url += "&grade=" + grade
     url += "&class=" + schlClass
+    url += "&range=week"
     const config = {
         headers: {
             'Accept' : 'application/json'
