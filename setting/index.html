@@ -8,52 +8,6 @@
             시간표
         </title>
         <link rel="stylesheet" href="../css/index.css" type="text/css">
-        <script>
-            var expdate = new Date('2022-03-09');
-            console.log(expdate)
-            //!TODO
-            //연말에 자동으로 만료되기
-
-            function setCookie(cookie_name, value, date) {
-                var exdate = date
-    // 설정 일수만큼 현재시간에 만료값으로 지정
-            
-                var cookie_value = escape(value)
-                document.cookie = cookie_name + '=' + cookie_value + ';path=/' + ';expires=' + exdate.toUTCString();
-            }
-
-            function getCookie(cookie_name) {
-                var x, y;
-                var val = document.cookie.split(';');
-            
-                for (var i = 0; i < val.length; i++) {
-                    x = val[i].substr(0, val[i].indexOf('='));
-                    y = val[i].substr(val[i].indexOf('=') + 1);
-                    x = x.replace(/^\s+|\s+$/g, ''); // 앞과 뒤의 공백 제거하기
-                    if (x == cookie_name) {
-                        return unescape(y); // unescape로 디코딩 후 값 리턴
-                    }
-                }
-            }
-
-            function onChange(e){
-                const value = e.value
-                const name = e.getAttribute('name')
-                console.log(name, value, expdate)
-
-                setCookie(name, value, expdate)
-            }
-
-            function buttonDone(){
-                for(var select of ["A", "C", "D", "E", "F"]){
-
-                }
-            }
-
-            function done(){
-                window.history.back()
-            }
-        </script>
     </head>
     <body>
         <main class="setting-main">
@@ -87,6 +41,9 @@
                         반
                     </div>
                 </div>
+
+
+
                 <div class="setting-wrapper">
                     <h3>선택과목 설정</h3>
                     <div>
@@ -171,6 +128,19 @@
                         </select>
                     </div>
                 </div>
+
+
+
+                <div class="setting-wrapper">
+                    <h3>테마</h3>
+                    <div>
+                        ㅁㄴㅇㄹ
+                    </div>
+                </div>
+
+
+
+
                 <div class="setting-done">
                     <button onclick="javascript:history.go(-1)">선택 완료!</button>
                 </div>
@@ -292,7 +262,12 @@
         
         <button onclick="javascript:history.go(-1)">선택 완료!</button>
     -->
+        <script src="../js/functions.js"></script>
+        <script src="../js/settings.js"></script>
         <script>
+            var expdate = new Date('2022-03-09');
+
+
             var cookieGrade = getCookie('grade');
             var cookieClass = getCookie("class");
             if(cookieGrade==undefined) setCookie("grade", "1", expdate); else document.getElementById("grade" + cookieGrade).setAttribute("selected", "")

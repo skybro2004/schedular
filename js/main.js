@@ -1,4 +1,4 @@
-var date = getToday()
+var date = getFormattedDate(new Date())
 var jsdate = new Date//(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
 var expdate = new Date('2022-03-09');
 if(getCookie("grade")==undefined) setCookie("grade", 1, expdate)
