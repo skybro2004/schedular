@@ -15,13 +15,15 @@ function update(grade, schlClass, date){
             return res.json()
         })
         .then(data => {
-            console.log("data")
-            console.log(data)
             console.log("code : ", data.code)
+            console.log(data)
             if(data.code==200){
+                //현재 작성된 데이터 지우기
                 clear()
+
                 for(const item of data.data){
                     //console.log(item.weekday_str + item.period + "|" + item.item);
+                    console.log(item)
                     var subject = String(item.item)
                     if(subject.startsWith('선택')){
                         if(getCookie("select" + subject.charAt(subject.length-1))!=undefined && getCookie("select" + subject.charAt(subject.length-1))!="none"){
@@ -48,6 +50,7 @@ function update(grade, schlClass, date){
         })
 }
 
+//싹다 지우기
 function clear(){
     for(var weekday of ["MON", "TUE", "WED", "THU", "FRI"]){
         for(var period=1; period<8; period++){
@@ -64,7 +67,7 @@ function nextWeek(){
     date = String(jsdate.getFullYear()) + (jsdate.getMonth() + 1).toString().padStart(2,'0') + jsdate.getDate().toString().padStart(2,'0')
     console.log(date, jsdate)
     update(getCookie("grade"), getCookie("class"), date)
-    }
+}
 
 function prevWeek(){
     console.log(date, jsdate, "=>")

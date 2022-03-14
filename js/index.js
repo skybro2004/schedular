@@ -55,7 +55,6 @@ function clear(){
             document.getElementsByClassName(String(weekday + period))[1].innerHTML = "-"
         }
     }
-
 }
 
 function nextWeek(){
