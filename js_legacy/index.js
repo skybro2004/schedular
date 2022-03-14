@@ -87,7 +87,7 @@ function todayWeek(){
 
 var date = getFormattedDate(new Date())
 var jsdate = new Date//(date.substr(0, 4), date.substr(4, 2), date.substr(6, 2))
-var expdate = new Date('2023-03-09');
+var expdate = new Date('2023-03-01');
 if(getCookie("grade")==undefined) setCookie("grade", 1, expdate)
 if(getCookie("class")==undefined) setCookie("class", 1, expdate)
 update(getCookie("grade"), getCookie("class"), date)
