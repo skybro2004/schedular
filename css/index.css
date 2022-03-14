@@ -149,6 +149,7 @@ button:active{
 
 .lunch{
     border-right: 0;
+    white-space: nowrap;
 }
 
 
