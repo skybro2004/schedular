@@ -9,17 +9,19 @@
 
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
         <link rel="stylesheet" href="./css/index.css" type="text/css">
+        <meta name="Keywords" content="서현, 서현고, 서현고등학교, 시간표, 급식, 급식사이트">
+        <meta name="description" content="서현고등학교 시간표">
     </head>
 
     <body>
-        <header>
-            
-        </header>
-        <main class="main-pc">
+        <main id="pc">
+            <div class="header">
+
+            </div>
 
             <div class="timetable">
                 <div class="info roundborder-top">
-                    <label id="info">-학년 -반 시간표</label>
+                    <label class="date-info">-학년 -반 시간표</label>
                     <button class="button" onclick="location.href='./setting'">설정</button>
                 </div>
                 <div class="date">
@@ -122,7 +124,7 @@
                         <div class="tableCol lunch">
                         </div>
                         <div class="tableCol lunch">
-                            <a class="link-lunch" href="/meal">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                            <a class="link-lunch" href="/meal">오늘 급식! <ion-icon name="open-outline"></ion-icon></a>
                         </div>
                         <div class="tableCol lunch">
                         </div>
@@ -180,198 +182,369 @@
                 </div>
 
                 
-                <div class="footer">
+            </div>
+
+            <div class="footer">
+
+            </div>
+        </main>
+
+
+
+
+        <main id="mobile">
+            <div class="header">
+                <div class="header-wrapper">
+                    <p class="date-info">- 학년 - 반 시간표</p>
+                    <button class="button" onclick="location.href='./setting'">설정</button>
+                </div>
+                <div class="header-wrapper">
+                    <a class="link-lunch" href="/meal">오늘 급식! <ion-icon name="open-outline"></ion-icon></a>
                 </div>
             </div>
 
-        
-        
-    
+            <div id="mobile-timetable" class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="slide-wrapper">
+                            <div class="cell cell-header">
+                                월요일
+                            </div>
+                            <div class="cell MON1">
+                                -
+                            </div>
+                            <div class="cell MON2">
+                                -
+                            </div>
+                            <div class="cell MON3">
+                                -
+                            </div>
+                            <div class="cell MON4">
+                                -
+                            </div>
+                            <div class="cell MON5">
+                                -
+                            </div>
+                            <div class="cell MON6">
+                                -
+                            </div>
+                            <div class="cell MON7">
+                                -
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="swiper-slide">
+                        <div class="slide-wrapper">
+                            <div class="cell cell-header">
+                                화요일
+                            </div>
+                            <div class="cell TUE1">
+                                -
+                            </div>
+                            <div class="cell TUE2">
+                                -
+                            </div>
+                            <div class="cell TUE3">
+                                -
+                            </div>
+                            <div class="cell TUE4">
+                                -
+                            </div>
+                            <div class="cell TUE5">
+                                -
+                            </div>
+                            <div class="cell TUE6">
+                                -
+                            </div>
+                            <div class="cell TUE7">
+                                -
+                            </div>
+                        </div>
+                    </div>
 
-    </main>
-    <main class="mobile-main">
-        <div class="mobile-header">
-            <div class="mobile-info-block">
-                <label id="mobile-info">-학년 -반 시간표</label>
-                <button onclick="location.href='./setting'">설정</button>
+                    <div class="swiper-slide">
+                        <div class="slide-wrapper">
+                            <div class="cell cell-header">
+                                수요일
+                            </div>
+                            <div class="cell WED1">
+                                -
+                            </div>
+                            <div class="cell WED2">
+                                -
+                            </div>
+                            <div class="cell WED3">
+                                -
+                            </div>
+                            <div class="cell WED4">
+                                -
+                            </div>
+                            <div class="cell WED5">
+                                -
+                            </div>
+                            <div class="cell WED6">
+                                -
+                            </div>
+                            <div class="cell WED7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slide-wrapper">
+                            <div class="cell cell-header">
+                                목요일
+                            </div>
+                            <div class="cell THU1">
+                                -
+                            </div>
+                            <div class="cell THU2">
+                                -
+                            </div>
+                            <div class="cell THU3">
+                                -
+                            </div>
+                            <div class="cell THU4">
+                                -
+                            </div>
+                            <div class="cell THU5">
+                                -
+                            </div>
+                            <div class="cell THU6">
+                                -
+                            </div>
+                            <div class="cell THU7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="slide-wrapper">
+                            <div class="cell cell-header">
+                                금요일
+                            </div>
+                            <div class="cell FRI1">
+                                -
+                            </div>
+                            <div class="cell FRI2">
+                                -
+                            </div>
+                            <div class="cell FRI3">
+                                -
+                            </div>
+                            <div class="cell FRI4">
+                                -
+                            </div>
+                            <div class="cell FRI5">
+                                -
+                            </div>
+                            <div class="cell FRI6">
+                                -
+                            </div>
+                            <div class="cell FRI7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
-        </div>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="mobile-table">
-                        <div class="mobile-table-row mobile-table-header">
-                            <b>월요일</b>
-                        </div>
-                        <div class="mobile-table-row MON1">
-                            -
-                        </div>
-                        <div class="mobile-table-row MON2">
-                            -
-                        </div>
-                        <div class="mobile-table-row MON3">
-                            -
-                        </div>
-                        <div class="mobile-table-row MON4">
-                            -
-                        </div>
-                        <div class="mobile-table-row MON5">
-                            -
-                        </div>
-                        <div class="mobile-table-row MON6">
-                            -
-                        </div>
-                        <div class="mobile-table-row MON7">
-                            -
-                        </div>
-                    </div>
+            <div class="footer">
+                <div class="date">
+                    <button class="button" onclick="prevWeek();">&lt;</button>
+                    <label class="week">-월 -일 ~ -월 -일 시간표</label>
+                    <button class="button" onclick="nextWeek();">&gt;</button>
+                    <button class="button" onclick="todayWeek();">이번주</button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="mobile-table">
-                        <div class="mobile-table-row mobile-table-header">
-                            <b>화요일</b>
-                        </div>
-                        <div class="mobile-table-row TUE1">
-                            -
-                        </div>
-                        <div class="mobile-table-row TUE2">
-                            -
-                        </div>
-                        <div class="mobile-table-row TUE3">
-                            -
-                        </div>
-                        <div class="mobile-table-row TUE4">
-                            -
-                        </div>
-                        <div class="mobile-table-row TUE5">
-                            -
-                        </div>
-                        <div class="mobile-table-row TUE6">
-                            -
-                        </div>
-                        <div class="mobile-table-row TUE7">
-                            -
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="mobile-table">
-                        <div class="mobile-table-row mobile-table-header">
-                            <b>수요일</b>
-                        </div>
-                        <div class="mobile-table-row WED1">
-                            -
-                        </div>
-                        <div class="mobile-table-row WED2">
-                            -
-                        </div>
-                        <div class="mobile-table-row WED3">
-                            -
-                        </div>
-                        <div class="mobile-table-row WED4">
-                            -
-                        </div>
-                        <div class="mobile-table-row WED5">
-                            -
-                        </div>
-                        <div class="mobile-table-row WED6">
-                            -
-                        </div>
-                        <div class="mobile-table-row WED7">
-                            -
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="mobile-table">
-                        <div class="mobile-table-row mobile-table-header">
-                            <b>목요일</b>
-                        </div>
-                        <div class="mobile-table-row THU1">
-                            -
-                        </div>
-                        <div class="mobile-table-row THU2">
-                            -
-                        </div>
-                        <div class="mobile-table-row THU3">
-                            -
-                        </div>
-                        <div class="mobile-table-row THU4">
-                            -
-                        </div>
-                        <div class="mobile-table-row THU5">
-                            -
-                        </div>
-                        <div class="mobile-table-row THU6">
-                            -
-                        </div>
-                        <div class="mobile-table-row THU7">
-                            -
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="mobile-table">
-                        <div class="mobile-table-row mobile-table-header">
-                            <b>금요일</b>
-                        </div>
-                        <div class="mobile-table-row FRI1">
-                            -
-                        </div>
-                        <div class="mobile-table-row FRI2">
-                            -
-                        </div>
-                        <div class="mobile-table-row FRI3">
-                            -
-                        </div>
-                        <div class="mobile-table-row FRI4">
-                            -
-                        </div>
-                        <div class="mobile-table-row FRI5">
-                            -
-                        </div>
-                        <div class="mobile-table-row FRI6">
-                            -
-                        </div>
-                        <div class="mobile-table-row FRI7">
-                            -
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- If we need pagination -->
-            
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            
-        </div>
-
-        <div class="mobile-control">
-            <div class="mobile-control-date">
-                <button onclick="prevWeek();">&lt;</button>
-                <label class="week">-/- ~ -/-</label>
-                <button onclick="nextWeek();">&gt;</button>
-                <button onclick="todayWeek();">이번주</button>
+                <div class="swiper-pagination"></div>
             </div>
 
-            <a href="/meal">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
-        </div>
-    </main>
-    <footer class="mobile-footer">
-        <div class="swiper-pagination"></div>
-    </footer>
-    
-    
+        </main>
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-    <script src="./js/functions.js"></script>
-    <script src="./js/index.js"></script>
-    <script src="https://kit.fontawesome.com/bfa60ca031.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+
+        <!--
+        <main class="mobile-main">
+            <div class="mobile-header">
+                <div class="mobile-info-block">
+                    <label id="mobile-info">-학년 -반 시간표</label>
+                    <button onclick="location.href='./setting'">설정</button>
+                </div>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="mobile-table">
+                            <div class="mobile-table-row mobile-table-header">
+                                <b>월요일</b>
+                            </div>
+                            <div class="mobile-table-row MON1">
+                                -
+                            </div>
+                            <div class="mobile-table-row MON2">
+                                -
+                            </div>
+                            <div class="mobile-table-row MON3">
+                                -
+                            </div>
+                            <div class="mobile-table-row MON4">
+                                -
+                            </div>
+                            <div class="mobile-table-row MON5">
+                                -
+                            </div>
+                            <div class="mobile-table-row MON6">
+                                -
+                            </div>
+                            <div class="mobile-table-row MON7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mobile-table">
+                            <div class="mobile-table-row mobile-table-header">
+                                <b>화요일</b>
+                            </div>
+                            <div class="mobile-table-row TUE1">
+                                -
+                            </div>
+                            <div class="mobile-table-row TUE2">
+                                -
+                            </div>
+                            <div class="mobile-table-row TUE3">
+                                -
+                            </div>
+                            <div class="mobile-table-row TUE4">
+                                -
+                            </div>
+                            <div class="mobile-table-row TUE5">
+                                -
+                            </div>
+                            <div class="mobile-table-row TUE6">
+                                -
+                            </div>
+                            <div class="mobile-table-row TUE7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mobile-table">
+                            <div class="mobile-table-row mobile-table-header">
+                                <b>수요일</b>
+                            </div>
+                            <div class="mobile-table-row WED1">
+                                -
+                            </div>
+                            <div class="mobile-table-row WED2">
+                                -
+                            </div>
+                            <div class="mobile-table-row WED3">
+                                -
+                            </div>
+                            <div class="mobile-table-row WED4">
+                                -
+                            </div>
+                            <div class="mobile-table-row WED5">
+                                -
+                            </div>
+                            <div class="mobile-table-row WED6">
+                                -
+                            </div>
+                            <div class="mobile-table-row WED7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mobile-table">
+                            <div class="mobile-table-row mobile-table-header">
+                                <b>목요일</b>
+                            </div>
+                            <div class="mobile-table-row THU1">
+                                -
+                            </div>
+                            <div class="mobile-table-row THU2">
+                                -
+                            </div>
+                            <div class="mobile-table-row THU3">
+                                -
+                            </div>
+                            <div class="mobile-table-row THU4">
+                                -
+                            </div>
+                            <div class="mobile-table-row THU5">
+                                -
+                            </div>
+                            <div class="mobile-table-row THU6">
+                                -
+                            </div>
+                            <div class="mobile-table-row THU7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="mobile-table">
+                            <div class="mobile-table-row mobile-table-header">
+                                <b>금요일</b>
+                            </div>
+                            <div class="mobile-table-row FRI1">
+                                -
+                            </div>
+                            <div class="mobile-table-row FRI2">
+                                -
+                            </div>
+                            <div class="mobile-table-row FRI3">
+                                -
+                            </div>
+                            <div class="mobile-table-row FRI4">
+                                -
+                            </div>
+                            <div class="mobile-table-row FRI5">
+                                -
+                            </div>
+                            <div class="mobile-table-row FRI6">
+                                -
+                            </div>
+                            <div class="mobile-table-row FRI7">
+                                -
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+            <div class="mobile-control">
+                <div class="mobile-control-date">
+                    <button onclick="prevWeek();">&lt;</button>
+                    <label class="week">-/- ~ -/-</label>
+                    <button onclick="nextWeek();">&gt;</button>
+                    <button onclick="todayWeek();">이번주</button>
+                </div>
+                <a href="/meal">오늘 급식! <i class="fa fa-external-link" aria-hidden="true"></i></a>
+            </div>
+        </main>
+        <footer class="mobile-footer">
+            <div class="swiper-pagination"></div>
+        </footer>
+    -->
+
+
+
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
+        <script src="./js/functions.js"></script>
+        <script src="./js/index.js"></script>
     </body>
 </html>
-
-<!--https://open.neis.go.kr/hub/hisTimetable?KEY=028278aaacd242438668d46a5464e934&Type=json&ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7530081&GRADE=2&CLASS_NM=8&TI_FROM_YMD=20210920&TI_TO_YMD=20210925-->

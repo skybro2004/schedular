@@ -1,0 +1,103 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#pc{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*==========시간표==========*/
+.timetable{
+    width: fit-content;
+    height: fit-content;
+    background-color: var(--bgcontainer);
+    border-radius: 0.5em;
+    padding: 0.6em;
+}
+.info{
+    width: initial;
+    background-color: var(--bgwrapper);
+    border-radius: 0.3em;
+    padding: 0.7em 0.8em;
+    text-align: center;
+}
+.date{
+    width: initial;
+    background-color: var(--bgwrapper);
+    border-radius: 0.3em;
+    padding: 0.5em 0.8em;
+    margin-top: 0.4em;
+    text-align: center;
+}
+.divTable{
+    display: table;
+    background-color: var(--bgwrapper);
+    margin-top: 0.4em;
+    border-radius: 0.3em;
+    table-layout: fixed;
+    padding: 0.3em 0.1em;
+}
+.tableRow{
+    display: table-row;
+}
+.tableCol{
+    display: table-cell;
+    width: 6em;
+    height: 2.7em;
+    padding: 0.3em 0.3em;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+.tableCol{
+    border-right: 1px solid var(--border-color);
+}
+.tableCol:last-child{
+    border-right: 0;
+}
+
+.tableRow .tableCol{
+    border-bottom: 1px solid var(--border-color);
+}
+.tableRow:last-child .tableCol{
+    border-bottom: 0;
+}
+
+.lunch{
+    border-right: 0;
+}
+.link-lunch{
+    white-space: nowrap;
+    text-decoration: none;
+    position: relative;
+}
+.link-lunch::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1.5px;
+    margin: 5px 0 0;
+    transition: all 0.2s ease-in-out;
+    transition-duration: 0.3s;
+    opacity: 0;
+    background-color: var(--font-color);
+}
+
+.link-lunch:hover:after{
+    width: 100%;
+    opacity: 1;
+}

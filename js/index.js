@@ -25,22 +25,23 @@ function update(grade, schlClass, date){
             //디버그
             console.log("res code :" + resData.code)
             console.log(resData)
+            
+            //이미 작성된 데이터 지우기
+            clear()
 
-            //200 정상
+            //header 날짜 표기
+            dateFrom = resData.header.dateFrom
+            dateTo = resData.header.dateTo
+            document.getElementsByClassName("week")[0].innerHTML = `${dateFrom.substr(4, 2)}월 ${dateFrom.substr(6, 2)}일 ~ ${dateTo.substr(4, 2)}월 ${dateTo.substr(6, 2)}일 시간표`
+            document.getElementsByClassName("week")[1].innerHTML = `${dateFrom.substr(4, 2)}/${dateFrom.substr(6, 2)} ~ ${dateTo.substr(4, 2)}/${dateTo.substr(6, 2)}`
+
+            //header 학년 반 표시
+            document.getElementsByClassName("date-info")[0].innerHTML = grade + "학년 " + schlClass + "반 시간표"
+            document.getElementsByClassName("date-info")[1].innerHTML = grade + "학년 " + schlClass + "반"
+
+            //200
+            //정상
             if(resData.code==200){
-                //이미 작성된 데이터 지우기
-                clear()
-
-                //header 날짜 표기
-                dateFrom = resData.header.dateFrom
-                dateTo = resData.header.dateTo
-                document.getElementsByClassName("week")[0].innerHTML = `${dateFrom.substr(4, 2)}월 ${dateFrom.substr(6, 2)}일 ~ ${dateTo.substr(4, 2)}월 ${dateTo.substr(6, 2)}일 시간표`
-                document.getElementsByClassName("week")[1].innerHTML = `${dateFrom.substr(4, 2)}/${dateFrom.substr(6, 2)} ~ ${dateTo.substr(4, 2)}/${dateTo.substr(6, 2)}`
-
-                //header 학년 반 표시
-                document.getElementById("info").innerHTML = grade + "학년 " + schlClass + "반 시간표"
-                document.getElementById("mobile-info").innerHTML = grade + "학년 " + schlClass + "반"
-
                 //시간표 작성
                 for(const item of resData.data){
                     var subject = String(item.item)
@@ -57,7 +58,15 @@ function update(grade, schlClass, date){
                     document.getElementsByClassName(item.weekday_str + item.period)[1].innerHTML = subject
                 }
             }
-            //else(resData)
+            //404
+            //시간표 없음(방학 등)
+            else if(resData.code==404){
+                alert("시간표가 없어요!")
+            }
+            //에러
+            else{
+                alert(`알 수 없는 오류가 발생했습니다.\ncode : ${resData.code}`)
+            }
         })
 }
 
@@ -73,39 +82,49 @@ function clear(){
 
 
 
+//날짜 불러오기
+//다음주
+function nextWeek(){
+    console.log(date, date_raw)
+    date_raw.setDate(date_raw.getDate() + 7)
+    date = String(date_raw.getFullYear()) + (date_raw.getMonth() + 1).toString().padStart(2,'0') + date_raw.getDate().toString().padStart(2,'0')
+    console.log(date, date_raw)
+    update(getCookie("grade"), getCookie("class"), date)
+}
 
-setCookie("grade", 3, new Date("2023-03-02"))
-setCookie("class", 8, new Date("2023-03-02"))
+//저번주
+function prevWeek(){
+    console.log(date_raw.getDate() - 7)
+    date_raw.setDate(date_raw.getDate() - 7)
+    date = String(date_raw.getFullYear()) + (date_raw.getMonth() + 1).toString().padStart(2,'0') + date_raw.getDate().toString().padStart(2,'0')
+    console.log(date, date_raw)
+    update(getCookie("grade"), getCookie("class"), date)
+}
+
+//이번주
+function todayWeek(){
+    date_raw = new Date()
+    date = String(date_raw.getFullYear()) + (date_raw.getMonth() + 1).toString().padStart(2,'0') + date_raw.getDate().toString().padStart(2,'0')
+    console.log(date, date_raw)
+    update(getCookie("grade"), getCookie("class"), date)
+}
+
+
+
+
+
+var date_raw = new Date
+var date = getFormattedDate(date_raw)
 if(getCookie("grade")==undefined) setCookie("grade", 1, new Date("2023-03-02"))
 if(getCookie("class")==undefined) setCookie("class", 1, new Date("2023-03-02"))
-update(getCookie("grade"), getCookie("class"), "20220314")
+update(getCookie("grade"), getCookie("class"), date)
 
 
 
 
 
 
-var isMobile = false
-var innerWidth = window.innerWidth;
-if(innerWidth<716){
-    isMobile = true
-}
-else{
-    isMobile = false
-}
-window.addEventListener('resize', function () {
-	var innerWidth = window.innerWidth;
-    if(innerWidth<716){
-        isMobile = true
-    }
-    else{
-        isMobile = false
-    }
-});
-
-
-
-var weekday = new Date().getDay() - 1
+var weekday = date_raw.getDay() - 1
 if(weekday==-1 || weekday==5){
     weekday = 0
 }
@@ -134,4 +153,4 @@ var mySwiper = new Swiper('.swiper-container', {
     slidesPerView: 3,
     centeredSlides: true,
     initialSlide: weekday
-}); 
+});

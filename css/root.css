@@ -1,0 +1,113 @@
+@charset "utf-8";
+
+@font-face {
+    font-family: 'S-Core Dream light';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/SCDream2.otf') format('woff');
+}
+
+@font-face {
+    font-family: 'S-Core Dream regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/SCDream4.otf') format('woff');
+}
+
+@font-face {
+    font-family: 'S-Core Dream heavy';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/SCDream7.otf') format('woff');
+}
+
+
+:root{
+    --font-light: 'S-Core Dream light', sans-serif;
+    --font-medium: 'S-Core Dream regular', sans-serif;
+    --font-heavy: 'S-Core Dream heavy', sans-serif;
+    --swiper-pagination-bullet-horizontal-gap: 20px;
+
+
+
+    --bgcolor: #121212;
+    --bgBorderColor: transparent;
+    --bgopacity: rgb(124, 124, 124, 0.2);
+    --bgcontainer: rgba(255, 255, 255, 0.03);/*0.02*/
+    --bgwrapper: rgba(255, 255, 255, 0.05);/*0.05*/
+    --border-color: rgba(255, 255, 255, 0.2);
+    --font-color: white;
+    --disabled: rgba(155, 155, 155, 0.5);
+}
+
+
+
+*{
+    font-family: var(--font-medium);
+    color: var(--font-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    background: var(--bgcolor);
+    min-height: 100%;
+    border: 1rem solid var(--bgBorderColor);
+    padding: 0.5rem;
+}
+
+
+
+button{
+    background-color: rgb(255, 255, 255, 0.05);
+    border: 1px solid rgb(255, 255, 255, 0.05);
+    border-radius: 0.3em;
+    padding: 0.2em 0.4em;
+    transition: 0.1s;
+}
+button:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+button:active{
+    background-color: rgb(255, 255, 255, 0.05);
+    border: 1px solid rgb(255, 255, 255, 0.05);
+}
+
+
+select{
+    width: 7em;
+    background-color: var(--bgwrapper);
+    border: 1px solid rgb(255, 255, 255, 0.05);
+    border-radius: 0.2rem;
+    padding: 0.1rem;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.1s;
+}
+select:hover{
+    border: 1px solid var(--border-color);
+}
+select:active{
+    border: 1px solid rgb(255, 255, 255, 0.05);
+}
+select#grade{
+    width: 3em;
+}
+select#class{
+    width: 3em;
+}
+.select-text{
+    display: inline-block;
+    width: 4em;
+}
+
+option{
+    background: #303030;
+    background: calc(--bgcolor + --bgopacity);
+}
