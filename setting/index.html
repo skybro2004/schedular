@@ -2,22 +2,27 @@
 <html>
     <head>
         <meta charset='utf-8'>
-        <link rel="shortcut icon" href="./images/icon.ico">
+        <link rel="shortcut icon" href="../images/icon.ico">
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>
             시간표
         </title>
-        <link rel="stylesheet" href="../css/index.css" type="text/css">
+        <link rel="stylesheet" href="../css/root.css" type="text/css">
+        <link rel="stylesheet" href="./css/index.css" type="text/css">
     </head>
     <body>
-        <main class="setting-main">
+        <main>
             <div class="setting-container">
-                <div class="setting-title">
+
+                <div class="setting-wrapper setting-title">
                     <h2>설정</h2>
                 </div>
-                <div class="setting-wrapper">
-                    <h3>학년/반 설정</h3>
-                    <div>
+
+
+
+                <div id="setting-grade" class="setting-wrapper">
+                    <h3 class="setting-wrapper-header">학년/반 설정</h3>
+                    <div class="setting-wrapper-option">
                         <select id="grade" name="grade" onchange="onChange(this)">
                             <option id="grade1" value="1">1</option>
                             <option id="grade2" value="2">2</option>
@@ -25,7 +30,7 @@
                         </select>
                         학년
                     </div>
-                    <div>
+                    <div class="setting-wrapper-option">
                         <select id="class" name="class" onchange="onChange(this)">
                             <option id="class1" value="1">1</option>
                             <option id="class2" value="2">2</option>
@@ -44,9 +49,180 @@
 
 
 
-                <div class="setting-wrapper">
-                    <h3>선택과목 설정</h3>
-                    <div>
+                <div id="setting-subject" class="setting-wrapper">
+                    <h3 class="setting-wrapper-header">선택과목 설정</h3>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 A : </span>
+                        <select name="selectA" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="언어와 매체">언어와 매체</option>
+                            <option value="심화 영어Ⅰ">심화 영어Ⅰ</option>
+                            <option value="심화 수학Ⅰ">심화 수학Ⅰ</option>
+                            <option value="사회·문화">사회·문화</option>
+                            <option value="미적분">미적분</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                            <option value="화법과 작문">화법과 작문</option>
+                            <option value="정보">정보</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="빅데이터 분석">빅데이터 분석</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 B : </span>
+                        <select name="selectB" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                            <option value="미적분">미적분</option>
+                            <option value="여행지리">여행지리</option>
+                            <option value="사회문제 탐구">사회문제 탐구</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="정보">정보</option>
+                            <option value="생활과 윤리">생활과 윤리</option>
+                            <option value="심리학/스포츠">심리학/스포츠</option>
+                            <option value="확률과 통계">확률과 통계</option>
+                            <option value="화법과 작문">화법과 작문</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 C : </span>
+                        <select name="selectC" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="한국지리">한국지리</option>
+                            <option value="한문Ⅰ">한문Ⅰ</option>
+                            <option value="심화 국어">심화 국어</option>
+                            <option value="생명과학Ⅱ">생명과학Ⅱ</option>
+                            <option value="사회·문화">사회·문화</option>
+                            <option value="빅데이터 분석">빅데이터 분석</option>
+                            <option value="물리학Ⅱ">물리학Ⅱ</option>
+                            <option value="심화 영어Ⅰ">심화 영어Ⅰ</option>
+                            <option value="화학Ⅱ">화학Ⅱ</option>
+                            <option value="일본어Ⅱ">일본어Ⅱ</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 D : </span>
+                        <select name="selectD" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="미적분">미적분</option>
+                            <option value="여행지리">여행지리</option>
+                            <option value="화법과 작문">화법과 작문</option>
+                            <option value="한문Ⅰ">한문Ⅰ</option>
+                            <option value="심화 수학Ⅰ">심화 수학Ⅰ</option>
+                            <option value="심리학/스포츠">심리학/스포츠</option>
+                            <option value="지구과학Ⅱ">지구과학Ⅱ</option>
+                            <option value="과학사">과학사</option>
+                            <option value="정보과학">정보과학</option>
+                            <option value="생활과 윤리">생활과 윤리</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 E : </span>
+                        <select name="selectE" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="생명과학Ⅱ">생명과학Ⅱ</option>
+                            <option value="사회문제 탐구">사회문제 탐구</option>
+                            <option value="지구과학Ⅱ">지구과학Ⅱ</option>
+                            <option value="정보">정보</option>
+                            <option value="수학과제 탐구">수학과제 탐구</option>
+                            <option value="확률과 통계">확률과 통계</option>
+                            <option value="심화 수학Ⅰ">심화 수학Ⅰ</option>
+                            <option value="심화 영어Ⅰ">심화 영어Ⅰ</option>
+                            <option value="언어와 매체">언어와 매체</option>
+                            <option value="심화 국어">심화 국어</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 F : </span>
+                        <select name="selectF" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="여행지리">여행지리</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                            <option value="사회문제 탐구">사회문제 탐구</option>
+                            <option value="심화 국어">심화 국어</option>
+                            <option value="한문Ⅰ">한문Ⅰ</option>
+                            <option value="생활과 윤리">생활과 윤리</option>
+                            <option value="미적분">미적분</option>
+                            <option value="화법과 작문">화법과 작문</option>
+                            <option value="생명과학Ⅱ">생명과학Ⅱ</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="중국어Ⅱ">중국어Ⅱ</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 G : </span>
+                        <select name="selectG" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="심화 국어">심화 국어</option>
+                            <option value="확률과 통계">확률과 통계</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                            <option value="사회문제 탐구">사회문제 탐구</option>
+                            <option value="사회·문화">사회·문화</option>
+                            <option value="심리학/스포">심리학/스포</option>
+                            <option value="언어와 매체">언어와 매체</option>
+                            <option value="정보과학">정보과학</option>
+                            <option value="화학Ⅱ">화학Ⅱ</option>
+                            <option value="수학과제 탐구">수학과제 탐구</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 H : </span>
+                        <select name="selectH" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="한문Ⅰ">한문Ⅰ</option>
+                            <option value="생명 과학Ⅱ">생명 과학Ⅱ</option>
+                            <option value="정보">정보</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                            <option value="사회문제 탐구">사회문제 탐구</option>
+                            <option value="심화 국어">심화 국어</option>
+                            <option value="미적분">미적분</option>
+                            <option value="확률과 통계">확률과 통계</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 I : </span>
+                        <select name="selectI" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="사회문제 탐구">사회문제 탐구</option>
+                            <option value="언어와 매체">언어와 매체</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="화학Ⅱ">화학Ⅱ</option>
+                            <option value="심화 국어">심화 국어</option>
+                            <option value="심화 수학Ⅰ">심화 수학Ⅰ</option>
+                            <option value="한문Ⅰ">한문Ⅰ</option>
+                            <option value="여행지리">여행지리</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-wrapper-option">
+                        <span class="select-text">선택 J : </span>
+                        <select name="selectJ" onchange="onChange(this)">
+                            <option value="none">(선택)</option>
+                            <option value="사회·문화">사회·문화</option>
+                            <option value="논술/스포츠">논술/스포츠</option>
+                            <option value="영어 독해와 작문">영어 독해와 작문</option>
+                            <option value="빅데이터 분석">빅데이터 분석</option>
+                            <option value="언어와 매체">언어와 매체</option>
+                            <option value="미적분">미적분</option>
+                            <option value="정보">정보</option>
+                            <option value="일본어Ⅱ">일본어Ⅱ</option>
+                            <option value="물리학Ⅱ">물리학Ⅱ</option>
+                            <option value="화법과 작문">화법과 작문</option>
+                        </select>
+                    </div>
+                    <!--<div class="setting-wrapper-option">
                         <span class="select-text">선택 A : </span>
                         <select name="selectA" onchange="onChange(this)">
                             <option value="none">(선택)</option>
@@ -63,7 +239,7 @@
                             <option value="프로그래밍">프로그래밍</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="setting-wrapper-option">
                         <span class="select-text">선택 C : </span>
                         <select name="selectC" onchange="onChange(this)">
                             <option value="none">(선택)</option>
@@ -79,7 +255,7 @@
                             <option value="화학 I">화학 I</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="setting-wrapper-option">
                         <span class="select-text">선택 D : </span>
                         <select name="selectD" onchange="onChange(this)">
                             <option value="none">(선택)</option>
@@ -95,7 +271,7 @@
                             <option value="중국어 I">중국어 I</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="setting-wrapper-option">
                         <span class="select-text">선택 E : </span>
                         <select name="selectE" onchange="onChange(this)">
                             <option value="none">(선택)</option>
@@ -111,7 +287,7 @@
                             <option value="생활과 과학">생활과 과학</option>
                         </select>
                     </div>
-                    <div>
+                    <div class="setting-wrapper-option">
                         <span class="select-text">선택 F : </span>
                         <select name="selectF" onchange="onChange(this)">
                             <option value="none">(선택)</option>
@@ -126,17 +302,28 @@
                             <option value="윤리와 사상">윤리와 사상</option>
                             <option value="지구과학 I">지구과학 I</option>
                         </select>
-                    </div>
+                    </div>-->
                 </div>
 
 
 
-                <div class="setting-wrapper">
-                    <h3>테마</h3>
-                    <div>
-                        ㅁㄴㅇㄹ
+                <!--<div id="setting-theme" class="setting-wrapper">
+                    <h3 class="setting-wrapper-header">테마</h3>
+                    <div class="setting-wrapper-option">
+                        <div class="theme-row">
+                            <div id="default" class="button-theme" onclick="buttonChangeTheme(this)"></div>
+                            <div id="dark" class="button-theme" onclick="buttonChangeTheme(this)"></div>
+                            <div id="modern" class="button-theme" onclick="buttonChangeTheme(this)"></div>
+                            <div class="button-theme"></div>
+                        </div>
+                        <div class="theme-row">
+                            <div class="button-theme"></div>
+                            <div class="button-theme"></div>
+                            <div class="button-theme"></div>
+                            <div class="button-theme"></div>
+                        </div>
                     </div>
-                </div>
+                </div>-->
 
 
 
@@ -174,7 +361,6 @@
         </div>
         
         <hr>
-
         <h3>선택과목 설정</h3>
         <div>
             선택 A : 
@@ -262,10 +448,12 @@
         
         <button onclick="javascript:history.go(-1)">선택 완료!</button>
     -->
+        <script type="module" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@5.2.3/dist/ionicons/ionicons.js"></script>
         <script src="../js/functions.js"></script>
-        <script src="../js/settings.js"></script>
+        <script src="./js/index.js"></script>
         <script>
-            var expdate = new Date('2022-03-09');
+            var expdate = new Date('2023-03-02');
 
 
             var cookieGrade = getCookie('grade');

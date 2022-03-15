@@ -1,27 +1,22 @@
 /*@charset "utf-8";
-
 @font-face {
     font-family: 'S-Core Dream light';
     font-style: normal;
     font-weight: 400;
     src: url('../../fonts/SCDream2.otf') format('woff');
 }
-
 @font-face {
     font-family: 'S-Core Dream regular';
     font-style: normal;
     font-weight: 400;
     src: url('../../fonts/SCDream4.otf') format('woff');
 }
-
 @font-face {
     font-family: 'S-Core Dream heavy';
     font-style: normal;
     font-weight: 400;
     src: url('../../fonts/SCDream7.otf') format('woff');
 }
-
-
 :root{
     --font-light: 'S-Core Dream light', sans-serif;
     --font-medium: 'S-Core Dream regular', sans-serif;
@@ -31,16 +26,13 @@
     --font-color: white;
     --border-color: white;
 }
-
 *{
     font-family: 'S-Core Dream regular';
     color: var(--font-color);
 }
-
 body{
     background: var(--bgcolor);
 }
-
 main{
     width: 100%;
     display: flex;
@@ -48,7 +40,6 @@ main{
     flex-wrap: wrap;
     justify-content: center;
 }
-
 table {
     width: 550px;
     min-width: 500px;
@@ -58,19 +49,16 @@ table {
     border-radius: 5px;
     float: left;
 }
-
 td{
     width: 80px;
     height: 40px;
     text-align: center;
     border: 2px solid var(--border-color);
 }
-
 button{
     background-color: var(--bgopacity);
     color: white;
 }
-
 select{
     width: 100px;
     background-color: var(--bgopacity);
@@ -81,14 +69,12 @@ select#grade{
 select#class{
     width: 50px;
 }
-
 option{
     background: gray;
 }
 #class1{
     background: yellow;
 }
-
 .plan{
     margin-left: 50px;
     width: 300px;
@@ -96,12 +82,128 @@ option{
     background-color: var(--bgopacity);
     border: 2px solid var(--border-color);
 }
-
 .header{
     width: 100%;
     text-align: center;
 }
-
 footer{
     clear: both;
+}
+*/
+
+
+
+*{
+    transition: 0.5s;
+}
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+.setting-container{
+    background-color: var(--bgcontainer);
+    border-radius: 0.5rem;
+    min-width: 20em;
+    padding: 1rem;
+}
+h2, h3, h4{
+    font-weight: lighter;
+}
+
+.setting-wrapper{
+    margin-bottom: 0.5rem;
+    background-color: var(--bgwrapper);
+    border-radius: 0.3rem;
+    padding: 0.5rem 0.8rem;
+}
+.setting-title{
+    text-align: center;
+    padding: 0.3rem;
+}
+.setting-wrapper-header{
+    margin-bottom: 0.5rem;
+}
+.setting-wrapper-option{
+    margin: 0.3rem 0;
+}
+
+#setting-subject .setting-wrapper-option{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.theme-row{
+    display: flex;
+    justify-content: space-between;
+}
+.button-theme{
+    display: inline-block;
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 8px solid transparent;
+    border-radius: 12px;
+    margin: 0.4rem 0;
+    outline: 1px solid var(--disabled);
+    transition: 0.5s;
+}
+.button-theme::before{
+    content: "";
+    position: absolute;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    width: 2rem;
+    height: 1rem;
+    border-radius: 0.5rem 0;
+    background-color: var(--font-color);
+    opacity: 0;
+    transition: 0.5s;
+}
+.button-theme::after{
+    content: "\2713";
+    font-weight: bold;
+    color: var(--bgcolor);
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    opacity: 0;
+    transition: 0.5s;
+}
+.button-theme.selected{
+    outline: 1px solid var(--font-color);
+}
+.button-theme.selected::before{
+    content: "";
+    opacity: 1;
+}
+.button-theme.selected::after{
+    content: "\2713";
+    opacity: 1;
+}
+
+
+
+
+.setting-done{
+    padding: 0.5rem 0;
+    margin-top: -0.5rem;
+    margin-bottom: -1rem;
+    text-align: center;
+}
+.setting-done button{
+    font-size: 1rem;
 }
