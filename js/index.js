@@ -1,4 +1,6 @@
 function update(grade, schlClass, date){
+    //spinner 나타나기
+    document.getElementById("spinner").classList.remove("disabled")
     //url 만들기
     //https://api.skybro2004.com/schedular?date=20220314&grade=3&class=8&range=week
     url = "https://api.skybro2004.com/schedular"
@@ -56,6 +58,8 @@ function update(grade, schlClass, date){
                     //시간표 작성하는 코드
                     document.getElementsByClassName(item.weekday_str + item.period)[0].innerHTML = subject
                     document.getElementsByClassName(item.weekday_str + item.period)[1].innerHTML = subject
+                    //spinner 제거
+                    document.getElementById("spinner").classList.add("disabled")
                 }
             }
             //404
